@@ -25,7 +25,6 @@
 //     }
 // }
 
-
 $name = $_POST['name'];
 $visitor_email = $_POST['email'];
 $message = $_POST['message'];
@@ -35,7 +34,6 @@ $email_from = 'Mike@luxurypalmeras.com';
 $email_subject = "New Form submission: $subject"; 
 $email_body = "Je hebt een nieuw bericht van $name.\n".
                         "Bericht:\n $message";
-
 
 $to = "Mike@luxurypalmeras.com";
 $headers = "From: $email_from \r\n";
