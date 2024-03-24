@@ -1,3 +1,5 @@
+<html>
+<body>
 <?php
 function IsInjected($str)
 {
@@ -46,6 +48,6 @@ if(IsInjected($visitor_email))
 }
 
 mail($to,$email_subject,$email_body,$headers);
-
-
 ?>
+</body>
+</html>
