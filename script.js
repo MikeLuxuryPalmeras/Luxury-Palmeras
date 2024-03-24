@@ -1,6 +1,6 @@
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 function validateForm(){
-    const forms = document.getElementByIdbyId('recensieForm')
+    const forms = document.getElementById('recensieForm')
   
     // Loop over them and prevent submission
     Array.from(forms).forEach(form => {
@@ -9,7 +9,6 @@ function validateForm(){
           event.preventDefault()
           event.stopPropagation()
         }
-  
         form.classList.add('was-validated')
       }, false)
     })
