@@ -14,3 +14,19 @@ function validateForm(){
       }, false)
     })
   }
+
+function validateContactForm(){
+    const forms = document.getElementById('contactForm')
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+        console.log(form)
+        if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+        }
+        console.log("pass")
+        form.classList.add('was-validated')
+        }, false)
+    })
+}

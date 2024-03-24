@@ -25,7 +25,8 @@
     <!-- translate -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
-          new google.translate.TranslateElement({pageLanguage: 'nl', includedLanguages: 'en,es,de,fr', 
+            new google.translate.TranslateElement({
+                pageLanguage: 'nl', includedLanguages: 'en,es,de,fr,nl', 
           layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
         }
     </script>
@@ -82,13 +83,16 @@
     <div class="container-fluid px-0 " id="container-head">
         <div class="row">
             <div class="col-12 m-auto text-center">
-                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause=false>
+                <div class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause=false>
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="4000" data-bs-pause=false data-bs-pause="hover">
                             <img src="lplogo2.jpg" class="d-block w-50 m-auto" alt="slide1" id="carousel1">
                         </div>
                         <div class="carousel-item " data-bs-pause=false data-bs-interval="40000" >
-                            <video muted autoplay loop id="example_video_1" src="images/luxury-vid1.mp4" type='video/mp4'></video>
+                            <video muted autoplay loop>
+                                <source src="images/luxury-vid1.mp4" type='video/mp4'>
+                                <source src="images/luxury-vid1.webm" type="video/webm">
+                            </video>
                         </div>
                     </div>
                 </div>
@@ -160,9 +164,8 @@
         <div class="row gap-3 py-5">
             <div class="col-10 text-center fw-bold m-auto py-1">
                 <h3 class="text-center"> Durf jij samen met ons de stap te zetten naar succesvol investeren onder de Spaanse zon?<br>
-                    Neem
                     <a href="" class="dark" data-bs-toggle="modal" data-bs-target="#modalContactForm">
-                        contact</a> op met Luxury Palmeras – waar dromenvangers realiteit worden!</h3>  
+                        Neem contact op met Luxury Palmeras</a> – waar dromenvangers realiteit worden!</h3>
             </div>
         </div>
     </div>
@@ -518,7 +521,8 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="POST" name="myemailform" action="https://formspree.io/f/mqkrdvjb">
+                <form class="needs-validation" id="contactForm" onsubmit="validateContactForm()" method="POST" name="myemailform"
+                    action="https://formspree.io/f/mqkrdvjb">
                     <div class="modal-body mx-3">
                         <div class="md-form mb-3">
                             <i class="fas fa-user prefix grey-text"></i>
@@ -528,7 +532,7 @@
                         <div class="md-form mb-3">
                             <i class="fas fa-envelope prefix grey-text"></i>
                             <label data-error="wrong" data-success="right" for="form29">Uw email address</label>
-                            <input type="email" id="form29" class="form-control validate" aria-describedby="emailHelp" name="email">                           
+                            <input type="email" id="form29" class="form-control validate" aria-describedby="emailHelp" name="email" required>
                             <div id="emailHelp" class="form-text">Wij delen u email niet met derden.</div>
                         </div>
                         <div class="md-form mb-3">
@@ -537,19 +541,18 @@
                             <input type="telephone" id="telefoon" class="form-control validate" name="telefoon" placeholder="(+316) 123-4567">
                             </div>
                         <div class="md-form mb-3">
-                            <i class="fas fa-tag prefix grey-text"></i>
-                            <!-- <label data-error="wrong" data-success="right" for="form32">Onderwerp</label> -->
                             <input type="hidden" id="form32" class="form-control validate" name="_subject" value="Contact Form Submission">
                         </div>
                         <div class="md-form">
                             <i class="fas fa-pencil prefix grey-text"></i>
-                            <label data-error="wrong" data-success="right" for="form8">Uw bericht:</label>
+                            <label data-error="wrong" data-success="right" for="form8" required>Uw bericht:</label>
                             <textarea type="text" id="form8" class="md-textarea form-control" rows="4" name="message"></textarea>                           
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn btn-dark" data-bs-target="#verstuurd" 
-                            data-bs-toggle="modal" data-bs-dismiss="modal" value="send">Verstuur <i class="fas fa-paper-plane-o ml-1"></i></button>
+                        <button type="submit" class="btn btn-dark" onclick="validateContactForm()" data-bs-target="#verstuurd"
+                            value="send">Verstuur
+                            <i class="fas fa-paper-plane-o ml-1"></i></button>
                     </div>
                 </form>
             </div>
