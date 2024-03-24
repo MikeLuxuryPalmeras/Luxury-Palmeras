@@ -523,8 +523,8 @@
                     <div class="modal-body mx-3">
                         <div class="md-form mb-3">
                             <i class="fas fa-user prefix grey-text"></i>
-                            <label data-error="wrong" data-success="right" for="form34">Uw naam</label>
-                            <input type="text" id="form34" class="form-control validate" name="name">                            
+                            <label data-error="wrong" data-success="right" for="naam">Uw naam</label>
+                            <input type="text" id="naam" class="form-control validate" name="name" required="" placeholder="Voor- en achternaam">
                         </div>
                         <div class="md-form mb-3">
                             <i class="fas fa-envelope prefix grey-text"></i>
@@ -537,11 +537,10 @@
                             <label data-error="wrong" data-success="right" for="telefoon">Telefoonnummer (optioneel)</label>
                             <input type="telephone" id="telefoon" class="form-control validate" name="telefoon" placeholder="(+316) 123-4567">
                             </div>
-                            
-                            <div class="md-form mb-3">
-                                <i class="fas fa-tag prefix grey-text"></i>
-                                <!-- <label data-error="wrong" data-success="right" for="form32">Onderwerp</label> -->
-                                <input type="hidden" id="form32" class="form-control validate" name="_subject" value="Contact Form Submission">
+                        <div class="md-form mb-3">
+                            <i class="fas fa-tag prefix grey-text"></i>
+                            <!-- <label data-error="wrong" data-success="right" for="form32">Onderwerp</label> -->
+                            <input type="hidden" id="form32" class="form-control validate" name="_subject" value="Contact Form Submission">
                         </div>
                         <div class="md-form">
                             <i class="fas fa-pencil prefix grey-text"></i>
@@ -581,32 +580,37 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="post" name="myemailform" action="http://formspree.io/Mike@luxurypalmeras.com">
+                <form method="POST" name="recensie" action="https://formspree.io/f/xoqgnoby">
                     <div class="modal-body mx-3">
                         <div class="md-form mb-3">
                             <i class="fas fa-user prefix grey-text"></i>
-                            <label data-error="wrong" data-success="right" for="form34">Uw naam</label>
-                            <input type="text" id="form34" class="form-control validate" name="name">                            
+                            <label data-error="wrong" data-success="right" for="naam">Uw naam</label>
+                            <input type="text" id="naam" class="form-control validate" name="name" required="" placeholder="Voor- en achternaam">
                         </div>
                         <div class="md-form mb-3">
                             <i class="fas fa-envelope prefix grey-text"></i>
                             <label data-error="wrong" data-success="right" for="form29">Uw email address</label>
-                            <input type="email" id="form29" class="form-control validate" aria-describedby="emailHelp" name="_replyto">
+                            <input type="email" id="form29" class="form-control validate" aria-describedby="emailHelp" name="email">
                             <div id="emailHelp" class="form-text">Wij delen u email niet met derden.</div>
                         </div>
                         <div class="md-form mb-3">
                             <i class="fas fa-tag prefix grey-text"></i>
-                            <label data-error="wrong" data-success="right" for="form32">De woning die u heeft gehuurd</label>
-                            <input type="text" id="form32" class="form-control validate" name="woning">                            
+                            <label data-error="wrong" data-success="right" for="telefoon">Telefoonnummer (optioneel)</label>
+                            <input type="telephone" id="telefoon" class="form-control validate" name="telefoon" placeholder="(+316) 123-4567">
+                            </div>
+                            <div class="md-form mb-3">
+                                <i class="fas fa-tag prefix grey-text"></i>
+                                <input type="hidden" class="form-control validate" name="_subject" value="Recensie Submission">
                         </div>
                         <div class="md-form">
                             <i class="fas fa-pencil prefix grey-text"></i>
                             <label data-error="wrong" data-success="right" for="form8">Uw recensie:</label>
-                            <textarea type="text" id="form8" class="md-textarea form-control" rows="4" name="body"></textarea>
+                            <textarea type="text" class="md-textarea form-control" rows="4" name="message"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn btn-dark" value="Send">Verstuur <i class="fas fa-paper-plane-o ml-1"></i></button>
+                        <button type="submit" class="btn btn-dark" data-bs-target="#verstuurd" data-bs-toggle="modal" data-bs-dismiss="modal"
+                            value="send">Verstuur <i class="fas fa-paper-plane-o ml-1"></i></button>
                     </div>
                 </form>
             </div>
