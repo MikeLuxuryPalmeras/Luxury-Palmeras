@@ -21,7 +21,7 @@
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <!-- translate -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
@@ -579,23 +579,23 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form class="needs-validation" method="POST" id="recensieForm" onsubmit="validateForm()" name="recensie"
-                    action="https://formspree.io/f/xoqgnoby" novalidate>
+                <form class="needs-validation" id="recensieForm" onsubmit="validateForm()" name="recensie" method="POST"
+                    action="https://formspree.io/f/xoqgnoby">
                     <div class="modal-body mx-3">
                         <div class="md-form mb-3">
                             <i class="fas fa-user prefix grey-text"></i>
-                            <label class="form-label" data-error="wrong" data-success="right" for="naam">Uw naam</label>
+                            <label class="form-label" for="naam">Uw naam</label>
                             <input type="text" id="naam" class="form-control" name="name" required placeholder="Voor- en achternaam">
                         </div>
                         <div class="md-form mb-3">
                             <i class="fas fa-envelope prefix grey-text"></i>
-                            <label class="form-label" data-error="wrong" data-success="right" for="form29">Uw email address</label>
+                            <label class="form-label" for="emailAddress">Uw email address</label>
                             <input type="email" id="emailAddress" class="form-control" aria-describedby="emailHelp" name="email" required>
                             <div id="emailHelp" class="form-text">Wij delen u email niet met derden.</div>
                         </div>
                         <div class="md-form mb-3">
                             <i class="bi bi-telephone prefix grey-text"></i>
-                            <label class="form-label" data-error="wrong" data-success="right" for="telefoon">Telefoonnummer (optioneel)</label>
+                            <label class="form-label" for="telefoon">Telefoonnummer (optioneel)</label>
                             <input type="telephone" id="telefoon" class="form-control" name="telefoon" placeholder="(+316) 123-4567">
                         </div>
                         <div class="md-form mb-3">
@@ -618,12 +618,12 @@
                         </div>
                         <div class="md-form">
                             <i class="fas fa-pencil prefix grey-text"></i>
-                            <label class="form-label" data-error="wrong" data-success="right">Uw recensie:</label>
+                            <label class="form-label" for="message">Uw recensie:</label>
                             <textarea type="text" id="message" class="md-textarea form-control" rows="4" name="message" required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" id="recensieSubmit" class="btn btn-dark">
+                        <button type="submit" id="recensieSubmit" class="btn btn-dark" onclick="validateForm()">
                             Verstuur <i class="fas fa-paper-plane-o ml-1"></i></button>
                     </div>
                 </form>
