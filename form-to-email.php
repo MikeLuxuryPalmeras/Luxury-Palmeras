@@ -24,10 +24,10 @@ function IsInjected($str)
 }
 
 
-$name = $_GET['name'];
-$visitor_email = $_GET['email'];
-$message = $_GET['message'];
-$subject = $_GET['subject'];
+$name = $_POST['name'];
+$visitor_email = $_POST['email'];
+$message = $_POST['message'];
+$subject = $_POST['subject'];
 
 $email_from = 'Mike@luxurypalmeras.com';
 $email_subject = "New Form submission: $subject"; 
