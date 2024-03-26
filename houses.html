@@ -60,9 +60,9 @@
                                 <li><a class="dropdown-item fs-4" href="casa-aaliyah.html">Casa Aaliyah</a></li>
                                 <li><a class="dropdown-item fs-4" href="casa-felicidad.html">Casa de Felicidad</a></li>
                                 <li><a class="dropdown-item fs-4" href="casa-ruby.html">Casa Ruby</a></li>
-                                <li><a class="dropdown-item fs-4" href="casa-massimo.html">Casa Massimo</a></li>
+                                <!-- <li><a class="dropdown-item fs-4" href="casa-massimo.html">Casa Massimo</a></li> -->
                                 <li><a class="dropdown-item fs-4" href="casa-luna.html">Casa Luna</a></li>
-                                <li><a class="dropdown-item fs-4" href="casa-an.html">Casa An</a></li>
+                                <li><a class="dropdown-item fs-4" href="casa-jardines.html">Casa Jardines</a></li>
                                 <li><a class="dropdown-item fs-4" href="casa-arne.html">Casa Arne</a></li>
                             </ul>
                         </li>
@@ -123,7 +123,7 @@
                         </a>
                     </div>
                     <div class="card-text text-center align-items-end pb-3">
-                        <a href="houses.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                        <a href="casa-alyssa.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
                     </div>
                 </div>
             </div>
@@ -165,7 +165,7 @@
                         </a>
                     </div>
                     <div class="card-text text-center align-items-end pb-3">
-                        <a href="houses.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                        <a href="casa-aaliyah.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
                     </div>
                 </div>
             </div>
@@ -207,7 +207,7 @@
                         </a>
                     </div>
                     <div class="card-text text-center align-items-end pb-3">
-                        <a href="#" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                        <a href="casa-felicidad.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
                     </div>
                 </div>
             </div>
@@ -250,7 +250,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <!-- <div class="col">
                 <div class="card h-100">
                     <div id="Casa5Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
                         data-bs-pause=false>
@@ -291,7 +291,7 @@
                         <a href="casa-massimo.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col">
                 <div class="card h-100">
                     <div id="Casa6Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
@@ -401,14 +401,14 @@
                         </button>
                     </div>
                     <div class="card-body text-center">
-                        <h3 class="card-title">Casa An</h3>
+                        <h3 class="card-title">Casa Jardines</h3>
                         <a class="text-decoration-none text-body fw-bold h4" target="_blank" 
                         href="https://www.google.com/maps/place/03189+La+Zenia,+Alicante,+Spain">
                             <i class="bi bi-geo-fill h3 py-5"></i>La Zenia
                         </a>
                     </div>
                     <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-an.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                        <a href="casa-jardines.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
                     </div>
                 </div>
             </div>
@@ -458,33 +458,38 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="get" name="myemailform" action="form-to-email.php">
+                <form class="needs-validation" id="contactForm" onsubmit="validateContactForm()" method="POST" name="myemailform"
+                    action="https://formspree.io/f/mqkrdvjb">
                     <div class="modal-body mx-3">
                         <div class="md-form mb-3">
                             <i class="fas fa-user prefix grey-text"></i>
-                            <label data-error="wrong" data-success="right" for="form34">Uw naam</label>
-                            <input type="text" id="form34" class="form-control validate" name="name">                            
+                            <label data-error="wrong" data-success="right" for="naam">Uw naam</label>
+                            <input type="text" id="naam" class="form-control validate" name="name" required="" placeholder="Voor- en achternaam">
                         </div>
                         <div class="md-form mb-3">
                             <i class="fas fa-envelope prefix grey-text"></i>
                             <label data-error="wrong" data-success="right" for="form29">Uw email address</label>
-                            <input type="email" id="form29" class="form-control validate" aria-describedby="emailHelp" name="email">                           
+                            <input type="email" id="form29" class="form-control validate" aria-describedby="emailHelp" name="email" required>
                             <div id="emailHelp" class="form-text">Wij delen u email niet met derden.</div>
                         </div>
                         <div class="md-form mb-3">
                             <i class="fas fa-tag prefix grey-text"></i>
-                            <label data-error="wrong" data-success="right" for="form32">Onderwerp</label>
-                            <input type="text" id="form32" class="form-control validate" name="subject">                            
+                            <label data-error="wrong" data-success="right" for="telefoon">Telefoonnummer (optioneel)</label>
+                            <input type="telephone" id="telefoon" class="form-control validate" name="telefoon" placeholder="(+316) 123-4567">
+                            </div>
+                            <div class="md-form mb-3">
+                                <input type="hidden" id="form32" class="form-control validate" name="_subject" value="Contact Form Submission">
                         </div>
                         <div class="md-form">
                             <i class="fas fa-pencil prefix grey-text"></i>
-                            <label data-error="wrong" data-success="right" for="form8">Uw bericht:</label>
-                            <textarea type="text" id="form8" class="md-textarea form-control" rows="4" name="message"></textarea>                           
+                            <label data-error="wrong" data-success="right" for="form8" required>Uw bericht:</label>
+                            <textarea type="text" id="form8" class="md-textarea form-control" rows="4" name="message" required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn btn-dark" data-bs-target="#verstuurd" 
-                            data-bs-toggle="modal" data-bs-dismiss="modal">Verstuur <i class="fas fa-paper-plane-o ml-1"></i></button>
+                        <button type="submit" class="btn btn-dark" onclick="validateContactForm()" data-bs-target="#verstuurd"
+                            value="send">Verstuur
+                            <i class="fas fa-paper-plane-o ml-1"></i></button>
                     </div>
                 </form>
             </div>
