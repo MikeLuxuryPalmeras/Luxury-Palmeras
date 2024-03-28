@@ -53,8 +53,13 @@ footer {
 #mike-family{
     max-height: 73dvh;
 }
+#invest-intro {
+    max-height: 73dvh;
+    overflow: auto;
+}
 #invest {
     overflow: auto;
+    height: 73dvh;
 }
 ul {
     text-align: center;
