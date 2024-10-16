@@ -3,7 +3,26 @@
 
 <head>
     <script>
-        function loadXMLDoc(filename) {
+        let xmlDoc;
+
+        async function loadDataFromXML() {
+            try {
+                const response = await fetch("http://localhost:4000/proxy-xml");
+                const xmlText = await response.text();
+                const parser = new DOMParser();
+                xmlDoc = parser.parseFromString(xmlText, "text/xml"); // Assign to global xmlDoc
+
+                // Now xmlDoc is available globally, so you can process it here or elsewhere
+                loadXMLDoc();
+                displayResult();
+            } catch (error) {
+                console.error("Error loading or parsing XML:", error);
+            }
+        }
+
+        loadDataFromXML();
+
+        function loadXMLDoc(filename) {            
             if (window.ActiveXObject) {
                 xhttp = new ActiveXObject("Msxml2.XMLHTTP");
             }
@@ -17,7 +36,12 @@
         }
 
         function displayResult() {
-            xml = loadXMLDoc("thinkspain.xml");
+            if (!xmlDoc) {
+                console.error("XML document not loaded");
+                return;
+            }
+            //xml = loadXMLDoc("test.xml");
+            xml = xmlDoc
             xsl = loadXMLDoc("transform.xslt");
             // code for IE
             if (window.ActiveXObject || xhttp.responseType == "msxml-document") {

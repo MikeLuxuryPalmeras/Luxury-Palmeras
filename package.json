@@ -1,5 +1,19 @@
 {
   "dependencies": {
-    "bs5-lightbox": "^1.8.3"
-  }
+    "bs5-lightbox": "^1.8.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "node-fetch": "^3.3.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "luxury-palmeras",
+  "description": "Luxury Palmeras website files",
+  "version": "1.0.0",
+  "main": "script.js",
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
