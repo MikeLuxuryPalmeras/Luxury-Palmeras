@@ -526,6 +526,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- contact form -->
 
                 <div class="modal fade" id="{ref}modalContactForm" tabindex="-1" role="dialog"
                     aria-labelledby="myModalLabel"
@@ -537,7 +538,10 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <form method="get" name="myemailform" action="form-to-email.php">
+                            <form class="needs-validation" id="contactFormHousing"
+                                onsubmit="validateContactForm()" method="POST"
+                                name="myEmailFormHousing"
+                                action="https://formspree.io/f/manyypgq">
                                 <div class="modal-body mx-3">
                                     <div class="md-form mb-3">
                                         <i class="fas fa-user prefix grey-text"></i>
@@ -562,15 +566,14 @@
                                         <div class="md-form mb-3">
                                             <i class="fas fa-tag prefix grey-text"></i>
                                             <label data-error="wrong" data-success="right"
-                                                for="form32">
+                                                for="email-subject">
                                                 Onderwerp</label>
-                                            <input type="text" id="form32"
+                                            <input type="text" id="email-subject"
                                                 class="form-control validate"
-                                                name="subject"
+                                                name="_subject"
                                                 value="Info {type} in {town}, {province} ({ref})" />
                                         </div>
                                     </fieldset>
-
                                     <div class="md-form">
                                         <i class="fas fa-pencil prefix grey-text"></i>
                                         <label data-error="wrong" data-success="right" for="form8">Uw
@@ -581,10 +584,30 @@
                                 </div>
                                 <div class="modal-footer d-flex justify-content-center">
                                     <button type="submit" class="btn btn-dark"
+                                        onclick="validateContactForm()" data-bs-target="#verstuurd"
+                                        value="send">Verstuur <i class="fas fa-paper-plane-o ml-1"></i></button>
+                                </div>
+                                <div class="modal fade" id="verstuurd" aria-hidden="true"
+                                    aria-labelledby="verstuurd" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="verstuurd">Bedankt!</h5>
+                                                <button type="button" class="btn-close"
+                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Bedankt voor u bericht!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="modal-footer d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-dark"
                                         data-bs-target="#verstuurd"
                                         data-bs-toggle="modal" data-bs-dismiss="modal">Verstuur <i
                                             class="fas fa-paper-plane-o ml-1"></i></button>
-                                </div>
+                                </div> -->
                             </form>
                         </div>
                     </div>
