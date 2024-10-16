@@ -51,8 +51,8 @@
                     class="navbar navbar-light navbar-expand-lg bg-white text-white pb-4 m-auto fs-4"
                     id="navigation">
                     <div class="container-fluid" id="navigation">
-                        <a class="navbar-brand h3 text-black align-middle" href="public/index.html">
-                            <img src="LP-icon.png"
+                        <a class="navbar-brand h3 text-black align-middle" href="index.html">
+                            <img src="images/LP-icon.png"
                                 class="image-responsive d-inline-block align-middle" width="40"
                                 height="40" alt="Logo" /> Luxury Palmeras </a>
                         <div class="nav align-items-end px-2">
@@ -68,23 +68,23 @@
                                             href="index.html">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="public/Luxury invest.html">Luxury
+                                        <a class="nav-link" href="Luxury invest.html">Luxury
                                             Invest</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="public/koopwoningen.html">Luxury
+                                        <a class="nav-link" href="koopwoningen.html">Luxury
                                             Properties</a>
                                     </li>
                                     <li class="nav-item" id="menu">
-                                        <a class="nav-link" href="public/houses.html"
+                                        <a class="nav-link" href="houses.html"
                                             aria-expanded="false">Luxury Rentals</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link " href="public/keyholding.html">
+                                        <a class="nav-link " href="keyholding.html">
                                             Keyholding</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="public/about.html">Over ons</a>
+                                        <a class="nav-link" href="about.html">Over ons</a>
                                     </li>
                                 </ul>
                             </div>
