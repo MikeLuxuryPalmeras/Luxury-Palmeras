@@ -2,12 +2,19 @@
 import express from "express";
 import fetch from "node-fetch";
 import cors from "cors"; // Import CORS middleware
-
+const path = require('path');
 const app = express();
-const PORT = 4000;
+
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Enable CORS for all routes
 app.use(cors());
+
+// Handle any API routes or dynamic functionality here
+app.get('/api', (req, res) => {
+  res.json({ message: "Hello from the backend!" });
+});
 
 // Proxy endpoint
 app.get("/proxy-xml", async (req, res) => {
@@ -23,4 +30,12 @@ app.get("/proxy-xml", async (req, res) => {
     }
 });
 
-app.listen(PORT, () => console.log(`Proxy server running on http://localhost:${PORT}`));
+
+// Default route to serve your homepage or fallback
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Start the server on the environment port or 3000
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
