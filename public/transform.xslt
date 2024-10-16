@@ -8,7 +8,7 @@
         <html>
             <head>
                 <title>Luxury Palmeras</title>
-                <link rel="stylesheet" type="text/css" href="style.css" />
+                <link rel="stylesheet" type="text/css" href="public/style.css" />
 
                 <meta charset="UTF-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,8 +26,8 @@
                 <link rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
                 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-                <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-                <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+                <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+                <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
                 <link rel="manifest" href="site.webmanifest" />
                 <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5" />
                 <meta name="msapplication-TileColor" content="#da532c" />
@@ -51,7 +51,7 @@
                     class="navbar navbar-light navbar-expand-lg bg-white text-white pb-4 m-auto fs-4"
                     id="navigation">
                     <div class="container-fluid" id="navigation">
-                        <a class="navbar-brand h3 text-black align-middle" href="index.html">
+                        <a class="navbar-brand h3 text-black align-middle" href="public/index.html">
                             <img src="LP-icon.png"
                                 class="image-responsive d-inline-block align-middle" width="40"
                                 height="40" alt="Logo" /> Luxury Palmeras </a>
@@ -68,21 +68,23 @@
                                             href="index.html">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="Luxury invest.html">Luxury Invest</a>
+                                        <a class="nav-link" href="public/Luxury invest.html">Luxury
+                                            Invest</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="koopwoningen.html">Luxury
+                                        <a class="nav-link" href="public/koopwoningen.html">Luxury
                                             Properties</a>
                                     </li>
                                     <li class="nav-item" id="menu">
-                                        <a class="nav-link" href="houses.html"
+                                        <a class="nav-link" href="public/houses.html"
                                             aria-expanded="false">Luxury Rentals</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link " href="keyholding.html">Keyholding</a>
+                                        <a class="nav-link " href="public/keyholding.html">
+                                            Keyholding</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="about.html">Over ons</a>
+                                        <a class="nav-link" href="public/about.html">Over ons</a>
                                     </li>
                                 </ul>
                             </div>

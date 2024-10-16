@@ -42,7 +42,7 @@
             }
             //xml = loadXMLDoc("test.xml");
             xml = xmlDoc
-            xsl = loadXMLDoc("transform.xslt");
+            xsl = loadXMLDoc("public/transform.xslt");
             // code for IE
             if (window.ActiveXObject || xhttp.responseType == "msxml-document") {
                 ex = xml.transformNode(xsl);
