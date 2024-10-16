@@ -7,7 +7,7 @@
 
         async function loadDataFromXML() {
             try {
-                const response = await fetch("http://localhost:4000/proxy-xml");
+                const response = await fetch(" https://luxury-palmeras-5b89d300db8d.herokuapp.com/proxy-xml"); //http://localhost:4000/proxy-xml
                 const xmlText = await response.text();
                 const parser = new DOMParser();
                 xmlDoc = parser.parseFromString(xmlText, "text/xml"); // Assign to global xmlDoc
@@ -42,7 +42,7 @@
             }
             //xml = loadXMLDoc("test.xml");
             xml = xmlDoc
-            xsl = loadXMLDoc("public/transform.xslt");
+            xsl = loadXMLDoc("transform.xslt");
             // code for IE
             if (window.ActiveXObject || xhttp.responseType == "msxml-document") {
                 ex = xml.transformNode(xsl);
