@@ -526,8 +526,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- contact form -->
 
+                <!-- contact form -->
                 <div class="modal fade" id="{ref}modalContactForm" tabindex="-1" role="dialog"
                     aria-labelledby="myModalLabel"
                     aria-hidden="true">
@@ -562,18 +562,18 @@
                                         <div id="emailHelp" class="form-text">Wij delen u email niet
                                             met derden.</div>
                                     </div>
-                                    <fieldset disabled="True">
-                                        <div class="md-form mb-3">
-                                            <i class="fas fa-tag prefix grey-text"></i>
-                                            <label data-error="wrong" data-success="right"
-                                                for="email-subject">
-                                                Onderwerp</label>
-                                            <input type="text" id="email-subject"
-                                                class="form-control validate"
-                                                name="_subject"
-                                                value="Info {type} in {town}, {province} ({ref})" />
-                                        </div>
-                                    </fieldset>
+                                    <div class="md-form mb-3">
+                                        <i class="fas fa-tag prefix grey-text"></i>
+                                        <label data-error="wrong" data-success="right"
+                                            for="email-subject">Onderwerp</label>
+                                        <input type="text" id="email-subject"
+                                            class="form-control validate" name="email-subject"
+                                            value="Info {type} in {town}, {province} ({ref})" />
+                                    </div>
+                                    <div class="md-form mb-3">
+                                        <input type="hidden" id="house-ref" name="house-ref"
+                                            value="Info {type} in {town}, {province} ({ref})" />
+                                    </div>
                                     <div class="md-form">
                                         <i class="fas fa-pencil prefix grey-text"></i>
                                         <label data-error="wrong" data-success="right" for="form8">Uw
@@ -602,12 +602,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="modal-footer d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-dark"
-                                        data-bs-target="#verstuurd"
-                                        data-bs-toggle="modal" data-bs-dismiss="modal">Verstuur <i
-                                            class="fas fa-paper-plane-o ml-1"></i></button>
-                                </div> -->
                             </form>
                         </div>
                     </div>
