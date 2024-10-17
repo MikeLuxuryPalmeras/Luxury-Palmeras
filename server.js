@@ -26,32 +26,19 @@ app.get('/api', (req, res) => {
 
 // Proxy endpoint
 
-app.get("/proxy-xml", async (req, res) => {
-    const cachedXML = cache.get("xmlData");
-
-    if (cachedXML) {
-        res.set("Content-Type", "application/xml");
-        return res.send(cachedXML);
-    }
-
-    try {
-        const response = await fetch("https://gaudi-estate.com/thinkspain.xml");
-        if (!response.ok) throw new Error(`Error fetching XML: ${response.statusText}`);
-        const xml = await response.text();
-        cache.set("xmlData", xml); // Cache the XML data
-        res.set("Content-Type", "application/xml");
-        res.send(xml);
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("Error fetching XML data");
-    }
-});
-
 // app.get("/proxy-xml", async (req, res) => {
+//     const cachedXML = cache.get("xmlData");
+
+//     if (cachedXML) {
+//         res.set("Content-Type", "application/xml");
+//         return res.send(cachedXML);
+//     }
+
 //     try {
 //         const response = await fetch("https://gaudi-estate.com/thinkspain.xml");
 //         if (!response.ok) throw new Error(`Error fetching XML: ${response.statusText}`);
 //         const xml = await response.text();
+//         cache.set("xmlData", xml); // Cache the XML data
 //         res.set("Content-Type", "application/xml");
 //         res.send(xml);
 //     } catch (error) {
@@ -59,6 +46,19 @@ app.get("/proxy-xml", async (req, res) => {
 //         res.status(500).send("Error fetching XML data");
 //     }
 // });
+
+app.get("/proxy-xml", async (req, res) => {
+    try {
+        const response = await fetch("https://gaudi-estate.com/thinkspain.xml");
+        if (!response.ok) throw new Error(`Error fetching XML: ${response.statusText}`);
+        const xml = await response.text();
+        res.set("Content-Type", "application/xml");
+        res.send(xml);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error fetching XML data");
+    }
+});
 
 
 // Default route to serve your homepage or fallback
