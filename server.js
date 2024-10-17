@@ -1,13 +1,11 @@
 // server.js
 import express from "express";
 import fetch from "node-fetch";
-import NodeCache from "node-cache";
 import path from 'path';
 import { fileURLToPath } from 'url';
 import cors from "cors"; // Import CORS middleware
 
 const app = express();
-const cache = new NodeCache({ stdTTL: 300 }); // Cache for 5 minutes
 
 // Use `fileURLToPath` to get __dirname in ES Modules
 const __filename = fileURLToPath(import.meta.url);
@@ -25,28 +23,6 @@ app.get('/api', (req, res) => {
 });
 
 // Proxy endpoint
-
-// app.get("/proxy-xml", async (req, res) => {
-//     const cachedXML = cache.get("xmlData");
-
-//     if (cachedXML) {
-//         res.set("Content-Type", "application/xml");
-//         return res.send(cachedXML);
-//     }
-
-//     try {
-//         const response = await fetch("https://gaudi-estate.com/thinkspain.xml");
-//         if (!response.ok) throw new Error(`Error fetching XML: ${response.statusText}`);
-//         const xml = await response.text();
-//         cache.set("xmlData", xml); // Cache the XML data
-//         res.set("Content-Type", "application/xml");
-//         res.send(xml);
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).send("Error fetching XML data");
-//     }
-// });
-
 app.get("/proxy-xml", async (req, res) => {
     try {
         const response = await fetch("https://gaudi-estate.com/thinkspain.xml");
