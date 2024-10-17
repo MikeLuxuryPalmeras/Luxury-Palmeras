@@ -3,6 +3,7 @@
     "bs5-lightbox": "^1.8.3",
     "cors": "^2.8.5",
     "express": "^4.21.1",
+    "node-cache": "^5.1.2",
     "node-fetch": "^2.7.0"
   },
   "scripts": {
