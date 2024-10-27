@@ -8,7 +8,7 @@
         <html>
             <head>
                 <title>Luxury Palmeras - Luxury Properties</title>
-                <link rel="stylesheet" type="text/css" href="public/style.css" />
+                <link rel="stylesheet" type="text/css" href="style.css" />
 
                 <meta charset="UTF-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -122,7 +122,7 @@
 
                     <!-- Button filters -->
                     <div class="row px-5 fw-bold m-auto pb-3 text-center">
-                        <div class="col-3">
+                        <div class="col-md-3 col-sm-6">
                             <div class="mb-3">
                                 <label>Filter op Slaapkamers:</label>
                                 <br />
@@ -135,7 +135,7 @@
                                 <br />
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-md-3 col-sm-6">
                             <div class="mb-3">
                                 <label>Filter op Badkamer:</label>
                                 <br />
@@ -148,7 +148,7 @@
                                 <br />
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-md-3 col-sm-6">
                             <div class="mb-3">
                                 <label>Filter op Zwembaden:</label>
                                 <br />
@@ -159,7 +159,7 @@
                                 <br />
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-md-3 col-sm-6">
                             <div class="mb-3">
                                 <label>Filter op type woning:</label>
                                 <br />
@@ -365,18 +365,18 @@
             data-pool="{pool}" data-type="{type}">
             <div class="col">
                 <div class="card h-100">
-                    <div id="{ref}" class="carousel slide carousel-fade card-img-top"
+                    <div id="{ref}" class="carousel slide carousel-fade card-img-top img-fluid"
                         data-bs-ride="carousel">
                         <div class="carousel-inner" data-bs-ride="carousel">
                             <xsl:for-each select="images/image[1]">
-                                <div class="carousel-item active" data-bs-interval="3000"
+                                <div class="carousel-item active" data-bs-interval="5000"
                                     data-bs-ride="carousel">
                                     <img class="d-block w-100 rounded-top" src="{url}"
                                         alt="Property Image" loading="lazy" id="casa1" />
                                 </div>
                             </xsl:for-each>
                             <xsl:for-each select="images/image[position()>1]">
-                                <div class="carousel-item" data-bs-interval="3000"
+                                <div class="carousel-item" data-bs-interval="5000"
                                     data-bs-ride="carousel">
                                     <img class="d-block w-100 rounded-top" src="{url}"
                                         alt="Property Image" loading="lazy" id="casa1" />
