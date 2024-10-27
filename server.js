@@ -13,6 +13,14 @@ const cache = new NodeCache({ stdTTL: 300 }); // Cache for 5 minutes (300 second
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Redirect HTTP to HTTPS
+app.use((req, res, next) => {
+  if (req.headers['x-forwarded-proto'] !== 'https') {
+    return res.redirect(301, `https://${req.headers.host}${req.url}`);
+  }
+  next();
+});
+
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, "public")));
 
