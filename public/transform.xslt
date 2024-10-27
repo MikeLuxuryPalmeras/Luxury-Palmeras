@@ -7,7 +7,7 @@
     <xsl:template match="/">
         <html>
             <head>
-                <title>Luxury Palmeras</title>
+                <title>Luxury Palmeras - Luxury Properties</title>
                 <link rel="stylesheet" type="text/css" href="public/style.css" />
 
                 <meta charset="UTF-8" />
@@ -25,7 +25,7 @@
                     crossorigin="anonymous"></script>
                 <link rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-                <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+                <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
                 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
                 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
                 <link rel="manifest" href="site.webmanifest" />
