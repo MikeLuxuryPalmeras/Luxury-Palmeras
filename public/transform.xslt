@@ -521,7 +521,7 @@
                                 <p class="fs-6 text-start">In samenwerking met Gaudi Estate.
                                     Register van makelaars in onroerend goed:
                                     Valenciaanse Gemeenschap (RAICV) nr. 2714</p>
-                                <img src="gaudi_logo_hr-1.png"
+                                <img src="images/gaudi_logo_hr-1.png"
                                     class="image-responsive d-inline-block" width="40"
                                     height="40" alt="Logo" />
                             </div>
