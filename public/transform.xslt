@@ -445,14 +445,14 @@
                                                 data-bs-interval="5000"
                                                 data-bs-ride="carousel">
                                                 <img class="d-block w-100 rounded-top" src="{url}"
-                                                    alt="Property Image" id="casa1" />
+                                                    alt="Property Image" loading="lazy" id="casa1" />
                                             </div>
                                         </xsl:for-each>
                                         <xsl:for-each select="images/image[position()>1]">
                                             <div class="carousel-item" data-bs-interval="5000"
                                                 data-bs-ride="carousel">
                                                 <img class="d-block w-100 rounded-top" src="{url}"
-                                                    alt="Property Image" id="casa1" />
+                                                    alt="Property Image" loading="lazy" id="casa1" />
                                             </div>
                                         </xsl:for-each>
                                     </div>
