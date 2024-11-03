@@ -3,18 +3,25 @@
 
 <head>
     <script>
-        let xmlDoc;
+                        let xmlDoc; // Global XML document
+                        let allHouses = []; // Store all house elements
 
         async function loadDataFromXML() {
             try {
-                const response = await fetch("https://luxury-palmeras-5b89d300db8d.herokuapp.com/proxy-xml"); //http://localhost:4000/proxy-xml
+                const response = await fetch("https://luxury-palmeras-5b89d300db8d.herokuapp.com/proxy-xml");
                 const xmlText = await response.text();
                 const parser = new DOMParser();
                 xmlDoc = parser.parseFromString(xmlText, "text/xml"); // Assign to global xmlDoc
 
+                // Store all house nodes for further processing, but limit to the first 100 for initial load
+                allHouses = Array.from(xmlDoc.getElementsByTagName("property")).slice(0, 100);
+
+                // Initial display of the first 100 houses
+                displayHouses(allHouses);
                 // Now xmlDoc is available globally, so you can process it here or elsewhere
                 loadXMLDoc();
                 displayResult();
+
             } catch (error) {
                 console.error("Error loading or parsing XML:", error);
             }
@@ -22,44 +29,67 @@
 
         loadDataFromXML();
 
-        function loadXMLDoc(filename) {            
-            if (window.ActiveXObject) {
-                xhttp = new ActiveXObject("Msxml2.XMLHTTP");
-            }
-            else {
-                xhttp = new XMLHttpRequest();
-            }
-            xhttp.open("GET", filename, false);
-            try { xhttp.responseType = "msxml-document" } catch (err) { } // Helping IE11
-            xhttp.send("");
-            return xhttp.responseXML;
-        }
+                        // function loadXMLDoc(filename) {
+                        //     if (window.ActiveXObject) {
+                        //         xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+                        //     }
+                        //     else {
+                        //         xhttp = new XMLHttpRequest();
+                        //     }
+                        //     xhttp.open("GET", filename, false);
+                        //     try { xhttp.responseType = "msxml-document" } catch (err) { } // Helping IE11
+                        //     xhttp.send("");
+                        //     return xhttp.responseXML;
+                        // }
 
-        function displayResult() {
-            if (!xmlDoc) {
-                console.error("XML document not loaded");
+                        // Display houses in the DOM
+                        function displayHouses(houses) {
+                            const xsl = loadXMLDoc("transform.xslt");
+                            if (!xsl) {
+                                console.error("XSL document not loaded");
                 return;
             }
-            //xml = loadXMLDoc("test.xml");
-            xml = xmlDoc
-            xsl = loadXMLDoc("transform.xslt");
-            // code for IE
-            if (window.ActiveXObject || xhttp.responseType == "msxml-document") {
-                ex = xml.transformNode(xsl);
-                document.getElementById("example").innerHTML = ex;
-            }
-            // code for Chrome, Firefox, Opera, etc.
-            else if (document.implementation && document.implementation.createDocument) {
-                xsltProcessor = new XSLTProcessor();
-                xsltProcessor.importStylesheet(xsl);
-                resultDocument = xsltProcessor.transformToFragment(xml, document);
-                document.getElementById("example").appendChild(resultDocument);
-            }
+
+            const xsltProcessor = new XSLTProcessor();
+            xsltProcessor.importStylesheet(xsl);
+
+            // Create a temporary XML document with only the limited houses
+            const limitedXMLDoc = xmlDoc.cloneNode(false); // Clone the XML root
+            const rootElement = limitedXMLDoc.documentElement;
+            houses.forEach(house => rootElement.appendChild(house.cloneNode(true)));
+
+            // Transform and display the result
+            const resultDocument = xsltProcessor.transformToFragment(limitedXMLDoc, document);
+            const exampleDiv = document.getElementById("example");
+            exampleDiv.innerHTML = ""; // Clear previous content
+            exampleDiv.appendChild(resultDocument);
         }
+
+    // function displayResult() {
+    //     if (!xmlDoc) {
+    //         console.error("XML document not loaded");
+    //         return;
+    //     }
+    //     //xml = loadXMLDoc("test.xml");
+    //     xml = xmlDoc
+    //     xsl = loadXMLDoc("transform.xslt");
+    //     // code for IE
+    //     if (window.ActiveXObject || xhttp.responseType == "msxml-document") {
+    //         ex = xml.transformNode(xsl);
+    //         document.getElementById("example").innerHTML = ex;
+    //     }
+    //     // code for Chrome, Firefox, Opera, etc.
+    //     else if (document.implementation && document.implementation.createDocument) {
+    //         xsltProcessor = new XSLTProcessor();
+    //         xsltProcessor.importStylesheet(xsl);
+    //         resultDocument = xsltProcessor.transformToFragment(xml, document);
+    //         document.getElementById("example").appendChild(resultDocument);
+    //     }
+    // }
     </script>
 </head>
 
-<body onload="displayResult()">
+<body onload="displayHouses()"> <!-- displayResult() -->
     <div id="example" />
 </body>
 
