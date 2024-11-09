@@ -218,9 +218,9 @@
                             </div>
                             <div class="col-lg-2 col-md-4 col-6 m-auto text-center">
                                 <a class="text-decoration-none text-body fw-bold" target="_blank"
-                                    href="https://wa.me/+31651717024">
+                                    href="https://wa.me/+34608205493">
                                     <i class="bi bi-whatsapp h3"></i>
-                                    <p>+31651717024</p>
+                                    <p>+34608205493</p>
                                 </a>
                             </div>
                             <div class="col-lg-2 col-md-4 col-6 m-auto text-center">
