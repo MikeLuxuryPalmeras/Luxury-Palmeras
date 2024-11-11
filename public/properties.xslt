@@ -203,52 +203,49 @@
                 </div>
                 <footer class="footer sticky-bottom">
                     <!-- contact -->
-                    <div class="container-fluid px-5 bg-body">
+                    <div class="container-fluid px-5 bg-body" id="contact-info">
                         <div class="row g-3 mx-auto">
-                            <!-- <div class="col-12 text-center">
-                                <h1>Contact</h1>
-                            </div> -->
-                            <div class="col-lg-2 col-md-4 col-6 mx-auto text-center">
+                            <div class="col-lg-2 col-md-4 col-4 mx-auto text-center">
                                 <a class="text-decoration-none text-body fw-bold" target="_blank"
                                     href="https://g.co/kgs/XPHsQeV">
-                                    <i class="bi bi-geo-alt-fill h3"></i>
-                                    <p>Carrer de Germanies 10
-                                        03111 Busot Alicante, Spain </p>
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                    <p>Carrer de Germanies 10.
+                                        03111 Busot, Alicante, Spain </p>
                                 </a>
                             </div>
-                            <div class="col-lg-2 col-md-4 col-6 m-auto text-center">
+                            <div class="col-lg-2 col-md-4 col-4 m-auto text-center">
                                 <a class="text-decoration-none text-body fw-bold" target="_blank"
                                     href="https://wa.me/+34608205493">
-                                    <i class="bi bi-whatsapp h3"></i>
+                                    <i class="bi bi-whatsapp"></i>
                                     <p>+34608205493</p>
                                 </a>
                             </div>
-                            <div class="col-lg-2 col-md-4 col-6 m-auto text-center">
+                            <div class="col-lg-2 col-md-4 col-4 m-auto text-center">
                                 <a class="text-decoration-none text-body fw-bold" target="_blank"
                                     href="https://www.linkedin.com/company/luxury-palmeras/">
-                                    <i class="bi bi-linkedin h3"></i>
+                                    <i class="bi bi-linkedin"></i>
                                     <p>LinkedIn</p>
                                 </a>
                             </div>
-                            <div class="col-lg-2 col-md-4 col-6 m-auto text-center">
+                            <div class="col-lg-2 col-md-4 col-4 m-auto text-center">
                                 <a class="text-decoration-none text-body fw-bold" target="_blank"
                                     href="" data-bs-toggle="modal"
                                     data-bs-target="#modalContactForm">
-                                    <i class="bi bi-envelope-at-fill h3"></i>
-                                    <p>Mike@Luxurypalmeras.com</p>
+                                    <i class="bi bi-envelope-at-fill"></i>
+                                    <p>Mike @Luxurypalmeras.com</p>
                                 </a>
                             </div>
-                            <div class="col-lg-2 col-md-4 col-6 m-auto text-center">
+                            <div class="col-lg-2 col-md-4 col-4 m-auto text-center">
                                 <a class="text-decoration-none text-body fw-bold" target="_blank"
                                     href="https://www.facebook.com/profile.php?id=100094585713462">
-                                    <i class="bi bi-facebook h3"></i>
+                                    <i class="bi bi-facebook"></i>
                                     <p>@luxury Palmeras</p>
                                 </a>
                             </div>
-                            <div class="col-lg-2 col-md-4 col-6 m-auto text-center">
+                            <div class="col-lg-2 col-md-4 col-4 m-auto text-center">
                                 <a class="text-decoration-none text-body fw-bold" target="_blank"
                                     href="https://www.instagram.com/luxurypalmeras/">
-                                    <i class="bi bi-instagram h3"></i>
+                                    <i class="bi bi-instagram"></i>
                                     <p>@luxurypalmeras</p>
                                 </a>
                             </div>
