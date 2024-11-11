@@ -78,3 +78,57 @@ ul {
 #arrow::before{
     content: "\00BB"; 
 }
+#pagination-bottom,
+#pagination-top {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow buttons to wrap to the next line */
+    justify-content: center;
+    /* Center the buttons horizontally */
+    gap: 10px;
+    /* Add some spacing between buttons */
+    padding: 10px 0;
+    /* Add padding to give some space around the pagination */
+}
+
+.pagination-button {
+    border: none;
+    /* Remove borders */
+    background: none;
+    /* Remove default background */
+    padding: 8px 12px;
+    /* Add padding to make buttons more clickable */
+    cursor: pointer;
+    /* Show hand cursor on hover */
+    font-size: 1rem;
+    /* Increase font size */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+.pagination-button:hover {
+    background-color: #f0f0f0;
+    /* Light gray hover effect */
+    border-radius: 5px;
+    /* Add rounded corners */
+}
+
+.pagination-button.active {
+    background-color: #007bff;
+    /* Blue background for active button */
+    color: white;
+    /* White text for active button */
+    border-radius: 5px;
+    /* Rounded corners for active button */
+}
+.pagination-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow buttons to wrap to the next line */
+    justify-content: center;
+    /* Center the buttons horizontally */
+    gap: 10px;
+    /* Add some spacing between buttons */
+    padding: 10px 0;
+    /* Add padding to give some space around the pagination */
+}

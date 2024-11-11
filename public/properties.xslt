@@ -2,55 +2,18 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:param name="propertiesPerPage" select="20" />
     <xsl:param name="currentPage" select="1" />
+    <xsl:param name="beds" select="''" />
+    <xsl:param name="baths" select="''" />
+    <xsl:param name="pool" select="''" />
+    <xsl:param name="type" select="''" />
     <!-- Output as HTML -->
     <xsl:output method="html" doctype-public="XSLT-compat" encoding="UTF-8" indent="yes" />
 
     <!-- Import CSS -->
     <xsl:template match="/">
         <html>
-            <head>
-                <title>Luxury Palmeras - Luxury Properties</title>
-                <link rel="stylesheet" type="text/css" href="style.css" />
-
-                <meta charset="UTF-8" />
-                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-                    rel="stylesheet"
-                    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-                    crossorigin="anonymous" />
-                <link rel="stylesheet"
-                    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-                <script
-                    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-                    crossorigin="anonymous"></script>
-                <link rel="stylesheet"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-                <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
-                <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
-                <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
-                <link rel="manifest" href="site.webmanifest" />
-                <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5" />
-                <meta name="msapplication-TileColor" content="#da532c" />
-                <meta name="theme-color" content="#ffffff" />
-
-                <!-- translate -->
-                <!-- <script type="text/javascript">
-                    function googleTranslateElementInit() {
-                    new google.translate.TranslateElement({pageLanguage: 'nl', includedLanguages:
-                    'en,es,de,fr',
-                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay:
-                    false}, 'google_translate_element');
-                    }
-                </script>
-                <script type="text/javascript"
-                    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                <div class="sticky-top" id="google_translate_element"></div> -->
-            </head>
             <body>
-                <nav
-                    class="navbar navbar-light navbar-expand-lg bg-white text-white pb-4 m-auto fs-4"
+                <nav class="navbar navbar-light navbar-expand-lg bg-white text-white pb-4 m-auto fs-4"
                     id="navigation">
                     <div class="container-fluid" id="navigation">
                         <a class="navbar-brand h3 text-black align-middle" href="index.html">
@@ -66,7 +29,7 @@
                             <div class="collapse navbar-collapse " id="navbarNavDropdown">
                                 <ul class="navbar-nav pull-left">
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page"
+                                        <a class="nav-link" aria-current="page"
                                             href="index.html">Home</a>
                                     </li>
                                     <li class="nav-item">
@@ -74,7 +37,7 @@
                                             Invest</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="koopwoningen.html">Luxury
+                                        <a class="nav-link active" href="properties.html">Luxury
                                             Properties</a>
                                     </li>
                                     <li class="nav-item" id="menu">
@@ -99,101 +62,127 @@
                             <h1>Woningen te koop in Spanje</h1>
                         </div>
                     </div>
-                    <!-- Dropdown for sorting -->
-                    <div class="row px-5">
-                        <div class="col-6 text-center fw-bold m-auto pb-3">
-                            <div class="mb-3">
-                                <label for="sortDropdown">Sorteer op:</label>
-                                <select id="sortDropdown" class="form-control"
-                                    onchange="sortProperties()">
-                                    <option value="none">-- Select --</option>
-                                    <option value="price_asc">Prijs (Laag naar Hoog)</option>
-                                    <option value="price_desc">Prijs (Hoog naar Laag)</option>
-                                    <option value="surface_area_asc">Woning Oppervlakte (Klein naar
-                                        Groot)</option>
-                                    <option value="surface_area_desc">Woning Oppervlakte (Groot naar
-                                        Klein)</option>
-                                    <option value="plot_area_asc">Tuin Oppervlakte (Klein naar
-                                        Groot)</option>
-                                    <option value="plot_area_desc">Tuin Oppervlakte (Groot naar
-                                        Klein)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- Button filters -->
-                    <div class="row px-5 fw-bold m-auto pb-3 text-center">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="mb-3">
-                                <label>Filter op Slaapkamers:</label>
-                                <br />
-                                <button id="beds-2" class="btn btn-light"
-                                    onclick="toggleFilter(this, 'beds', 2)">2 Slaapkamers</button>
-                                <button id="beds-3" class="btn btn-light"
-                                    onclick="toggleFilter(this, 'beds', 3)">3 Slaapkamers</button>
-                                <button id="beds-4" class="btn btn-light"
-                                    onclick="toggleFilter(this, 'beds', 4)">4 Slaapkamers</button>
-                                <br />
+                    <div id="filters">
+                        <!-- Dropdown for sorting -->
+                        <div class="sorting-container">
+                            <div class="row px-5">
+                                <div class="col-6 text-center fw-bold m-auto pb-3">
+                                    <div class="mb-3">
+                                        <label for="sortDropdown">Sorteer op:</label>
+                                        <select id="sortDropdown" onchange="applySort()" class="form-control">
+                                            <option value="none">-- Select --</option>
+                                            <option value="price_asc">Prijs (Laag naar Hoog)</option>
+                                            <option value="price_desc">Prijs (Hoog naar Laag)</option>
+                                            <option value="surface_area_asc">Woning Oppervlakte
+                                                (Klein
+                                                naar
+                                                Groot)</option>
+                                            <option value="surface_area_desc">Woning Oppervlakte
+                                                (Groot
+                                                naar
+                                                Klein)</option>
+                                            <option value="plot_area_asc">Tuin Oppervlakte (Klein
+                                                naar
+                                                Groot)</option>
+                                            <option value="plot_area_desc">Tuin Oppervlakte (Groot
+                                                naar
+                                                Klein)</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="mb-3">
-                                <label>Filter op Badkamer:</label>
-                                <br />
-                                <button id="baths-1" class="btn btn-light"
-                                    onclick="toggleFilter(this, 'baths', 1)">1 Badkamer</button>
-                                <button id="baths-2" class="btn btn-light"
-                                    onclick="toggleFilter(this, 'baths', 2)">2 Badkamer</button>
-                                <button id="baths-3" class="btn btn-light"
-                                    onclick="toggleFilter(this, 'baths', 3)">3 Badkamer</button>
-                                <br />
+                        <div class="row px-5 fw-bold m-auto pb-3 text-center">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="mb-3">
+                                    <label>Filter op Slaapkamers:</label>
+                                    <br />
+                                    <button id="beds-2" class="btn btn-light"
+                                        onclick="toggleFilter(this, 'beds', 2)">2 Slaapkamers</button>
+                                    <button id="beds-3" class="btn btn-light"
+                                        onclick="toggleFilter(this, 'beds', 3)">3 Slaapkamers</button>
+                                    <button id="beds-4" class="btn btn-light"
+                                        onclick="toggleFilter(this, 'beds', 4)">4 Slaapkamers</button>
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="mb-3">
+                                    <label>Filter op Badkamer:</label>
+                                    <br />
+                                    <button id="baths-1" class="btn btn-light"
+                                        onclick="toggleFilter(this, 'baths', 1)">1 Badkamer</button>
+                                    <button id="baths-2" class="btn btn-light"
+                                        onclick="toggleFilter(this, 'baths', 2)">2 Badkamer</button>
+                                    <button id="baths-3" class="btn btn-light"
+                                        onclick="toggleFilter(this, 'baths', 3)">3 Badkamer</button>
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="mb-3">
+                                    <label>Filter op Zwembaden:</label>
+                                    <br />
+                                    <button id="pool-1" class="btn btn-light"
+                                        onclick="toggleFilter(this, 'pool', 1)">Met Zwembad</button>
+                                    <button id="pool-0" class="btn btn-light"
+                                        onclick="toggleFilter(this, 'pool', 0)">Zonder Zwembad</button>
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="mb-3">
+                                    <label>Filter op type woning:</label>
+                                    <br />
+                                    <button id="type-Villa" class="btn btn-light"
+                                        onclick="toggleFilter(this, 'type', 'Villa')">Villa</button>
+                                    <button id="type-Apartment" class="btn btn-light"
+                                        onclick="toggleFilter(this, 'type', 'Apartment')">
+                                        Appartement</button>
+                                    <br />
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="mb-3">
-                                <label>Filter op Zwembaden:</label>
-                                <br />
-                                <button id="pool-1" class="btn btn-light"
-                                    onclick="toggleFilter(this, 'pool', 1)">Met Zwembad</button>
-                                <button id="pool-0" class="btn btn-light"
-                                    onclick="toggleFilter(this, 'pool', 0)">Zonder Zwembad</button>
-                                <br />
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="mb-3">
-                                <label>Filter op type woning:</label>
-                                <br />
-                                <button id="type-Villa" class="btn btn-light"
-                                    onclick="toggleFilter(this, 'type', 'Villa')">Villa</button>
-                                <button id="type-Apartment" class="btn btn-light"
-                                    onclick="toggleFilter(this, 'type', 'Apartment')">Appartement</button>
-                                <br />
+                        <div class="row px-5 fw-bold m-auto pb-3 text-center">
+                            <div class="col-12">
+                                <div class="mb-12">
+                                    <button class="btn btn-secondary mt-2" onclick="clearFilters()">Reset
+                                        Filters</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row px-5 fw-bold m-auto pb-3 text-center">
-                        <div class="col-12">
-                            <div class="mb-12">
-                                <button class="btn btn-secondary mt-2" onclick="clearFilters()">Reset
-                                    Filters</button>
-                            </div>
+                    <!-- Pagination controls underneath the filters -->
+                    <div id="pagination-top" class="pagination-container"></div>
+                    <!-- Property Listings - Placed in the #example container -->
+                    <div id="example">
+                        <div id="property-list"
+                            class="row row-cols-lg-3 row-cols-md-1 row-cols-1 g-5 p-5">
+                            <!-- Calculate start and end indexes based on page and properties per
+                            page -->
+                            <xsl:variable name="startIndex"
+                                select="(($currentPage - 1) * $propertiesPerPage) + 1" />
+                            <xsl:variable name="endIndex" select="$currentPage * $propertiesPerPage" />
+
+                            <xsl:for-each
+                                select="//property[
+                                (not($beds) or beds = $beds) and 
+                                (not($baths) or baths = $baths) and 
+                                (not($pool) or pool = $pool) and
+                                (not($type) or type = $type)
+                            ]">
+                                <!-- Pagination condition -->
+                                <xsl:if
+                                    test="position() &gt;= $startIndex and position() &lt;= $endIndex">
+                                    <xsl:apply-templates select="." />
+                                </xsl:if>
+                            </xsl:for-each>
                         </div>
                     </div>
-                    <div id="property-list"
-                        class="row row-cols-lg-3 row-cols-md-1 row-cols-1 g-5 p-5">
-                        <!-- Calculate start and end indexes based on page and properties per page -->
-                        <xsl:variable name="startIndex"
-                            select="(($currentPage - 1) * $propertiesPerPage) + 1" />
-                        <xsl:variable name="endIndex" select="$currentPage * $propertiesPerPage" />
-                        <!-- Loop through properties within the start and end index -->
-                        <xsl:for-each
-                            select="//property[position() &gt;= $startIndex and position() &lt;= $endIndex]">
-                            <!-- Apply property template -->
-                            <xsl:apply-templates select="." />
-                        </xsl:for-each>
-                    </div>
+                    <!-- Pagination controls underneath the properties -->
+                    <div id="pagination-bottom" class="pagination-container"></div>
                 </div>
                 <!-- contact form -->
 
@@ -267,104 +256,6 @@
                     </div>
                 </footer>
                 <!-- Script for sorting properties -->
-                <script>
-                    let currentFilter = {};
-
-                    window.onload = function() {
-                    document.getElementById('sortDropdown').addEventListener('change',
-                    sortProperties);
-                    };
-
-                    function sortProperties() {
-                    var propertyList = document.getElementById('property-list');
-                    var properties = Array.from(propertyList.getElementsByClassName('property'));
-                    var sortBy = document.getElementById('sortDropdown').value;
-                    properties.sort(function(a, b) {
-                    var comparison = 0;
-                    if (sortBy === 'price_asc') {
-                    comparison = parseInt(a.getAttribute('data-price')) -
-                    parseInt(b.getAttribute('data-price'));
-                    } else if (sortBy === 'price_desc') {
-                    comparison = parseInt(b.getAttribute('data-price')) -
-                    parseInt(a.getAttribute('data-price'));
-                    } else if (sortBy === 'surface_area_asc') {
-                    comparison = parseInt(a.getAttribute('data-surface-area')) -
-                    parseInt(b.getAttribute('data-surface-area'));
-                    } else if (sortBy === 'surface_area_desc') {
-                    comparison = parseInt(b.getAttribute('data-surface-area')) -
-                    parseInt(a.getAttribute('data-surface-area'));
-                    } else if (sortBy === 'plot_area_asc') {
-                    comparison = parseInt(a.getAttribute('data-plot-area')) -
-                    parseInt(b.getAttribute('data-plot-area'));
-                    } else if (sortBy === 'plot_area_desc') {
-                    comparison = parseInt(b.getAttribute('data-plot-area')) -
-                    parseInt(a.getAttribute('data-plot-area'));
-                    }
-                    return comparison;
-                    });
-
-                    // Re-arrange properties in the DOM
-                    properties.forEach(function(property) {
-                    propertyList.appendChild(property);
-                    });
-                    }
-
-                    function toggleFilter(button, attribute, value) {
-                    // Clear previous selection for this filter category
-                    let buttons = document.querySelectorAll(`button[id^=${attribute}]`);
-                    buttons.forEach(function(btn) {
-                    btn.classList.remove('btn-secondary');
-                    btn.classList.add('btn-light');
-                    });
-
-                    // Set the clicked button as active
-                    button.classList.toggle('btn-secondary');
-                    button.classList.toggle('btn-light');
-
-                    currentFilter[attribute] = value;
-
-                    filterProperties();
-                    }
-
-                    function filterProperties() {
-                    var properties = document.getElementsByClassName('property');
-                    Array.from(properties).forEach(function(property) {
-                    let showProperty = true;
-
-                    for (let [attribute, value] of Object.entries(currentFilter)) {
-                    let propertyValue = property.getAttribute('data-' + attribute);
-
-                    if (attribute === 'type') {
-                    if (propertyValue !== value) {
-                    showProperty = false;
-                    break;
-                    }
-                    } else if (parseInt(propertyValue) !== value) {
-                    showProperty = false;
-                    break;
-                    }
-                    }
-
-                    property.style.display = showProperty ? 'block' : 'none';
-                    });
-                    }
-
-                    function clearFilters() {
-                    var properties = document.getElementsByClassName('property');
-                    Array.from(properties).forEach(function(property) {
-                    property.style.display = 'block';
-                    });
-
-                    currentFilter = {}; // Clear the active filters
-
-                    // Reset button styles
-                    let buttons = document.querySelectorAll('button.btn-secondary');
-                    buttons.forEach(function(btn) {
-                    btn.classList.remove('btn-secondary');
-                    btn.classList.add('btn-light');
-                    });
-                    }
-                </script>
             </body>
         </html>
     </xsl:template>
