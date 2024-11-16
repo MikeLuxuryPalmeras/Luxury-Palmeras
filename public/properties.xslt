@@ -62,7 +62,6 @@
                             <h1>Woningen te koop in Spanje</h1>
                         </div>
                     </div>
-
                     <!-- Button filters -->
                     <div id="filters">
                         <!-- Dropdown for sorting -->
@@ -172,7 +171,7 @@
                     <!-- Property Listings - Placed in the #example container -->
                     <div id="example">
                         <div id="property-list"
-                            class="row row-cols-lg-3 row-cols-md-1 row-cols-1 g-5 p-5">
+                            class="row row-cols-xl-3 row-cols-md-2 row-cols-1 g-5 p-5">
                             <!-- Calculate start and end indexes based on page and properties per
                             page -->
                             <xsl:variable name="startIndex"
@@ -198,7 +197,6 @@
                     <div id="pagination-bottom" class="pagination-container"></div>
                 </div>
                 <!-- contact form -->
-
                 <div class="modal fade" id="verstuurd" aria-hidden="true"
                     aria-labelledby="verstuurd" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
