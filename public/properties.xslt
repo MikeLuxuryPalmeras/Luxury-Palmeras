@@ -99,24 +99,24 @@
                                 <div class="mb-3">
                                     <label>Filter op Slaapkamers:</label>
                                     <br />
-                                    <button id="beds-2" class="btn btn-light"
+                                    <button id="beds-2" class="btn btn-light mx-1"
                                         onclick="toggleFilter(this, 'beds', 2)">2 Slaapkamers</button>
-                                    <button id="beds-3" class="btn btn-light"
+                                    <button id="beds-3" class="btn btn-light mx-1"
                                         onclick="toggleFilter(this, 'beds', 3)">3 Slaapkamers</button>
-                                    <button id="beds-4" class="btn btn-light"
+                                    <button id="beds-4" class="btn btn-light mx-1"
                                         onclick="toggleFilter(this, 'beds', 4)">4 Slaapkamers</button>
                                     <br />
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6">
                                 <div class="mb-3">
-                                    <label>Filter op Badkamer:</label>
+                                    <label>Filter op Badkamers:</label>
                                     <br />
-                                    <button id="baths-1" class="btn btn-light"
+                                    <button id="baths-1" class="btn btn-light mx-1"
                                         onclick="toggleFilter(this, 'baths', 1)">1 Badkamer</button>
-                                    <button id="baths-2" class="btn btn-light"
+                                    <button id="baths-2" class="btn btn-light mx-1"
                                         onclick="toggleFilter(this, 'baths', 2)">2 Badkamer</button>
-                                    <button id="baths-3" class="btn btn-light"
+                                    <button id="baths-3" class="btn btn-light mx-1"
                                         onclick="toggleFilter(this, 'baths', 3)">3 Badkamer</button>
                                     <br />
                                 </div>
@@ -125,9 +125,9 @@
                                 <div class="mb-3">
                                     <label>Filter op Zwembaden:</label>
                                     <br />
-                                    <button id="pool-1" class="btn btn-light"
+                                    <button id="pool-1" class="btn btn-light mx-1"
                                         onclick="toggleFilter(this, 'pool', 1)">Met Zwembad</button>
-                                    <button id="pool-0" class="btn btn-light"
+                                    <button id="pool-0" class="btn btn-light mx-1"
                                         onclick="toggleFilter(this, 'pool', 0)">Zonder Zwembad</button>
                                     <br />
                                 </div>
@@ -136,13 +136,28 @@
                                 <div class="mb-3">
                                     <label>Filter op type woning:</label>
                                     <br />
-                                    <button id="type-Villa" class="btn btn-light"
+                                    <button id="type-Villa" class="btn btn-light mx-1"
                                         onclick="toggleFilter(this, 'type', 'Villa')">Villa</button>
-                                    <button id="type-Apartment" class="btn btn-light"
+                                    <button id="type-Apartment" class="btn btn-light mx-1"
                                         onclick="toggleFilter(this, 'type', 'Apartment')">
                                         Appartement</button>
                                     <br />
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row px-5 mx-2">
+                            <div class="col-12 text-center fw-bold m-auto pb-3">
+                                <!-- Price Range Filter Buttons -->
+                                <div class="price-filters text-center col">
+                                    <label>Prijs klasse:</label>
+                                    <br />                      
+                                    <button class="btn btn-light filter-btn mx-1" id="price-below_100k" onclick="toggleFilter(this, 'price', 'below_100k')">Onder 100k</button>
+                                    <button class="btn btn-light filter-btn mx-1" id="price-100k_150k" onclick="toggleFilter(this, 'price', '100k_150k')">100k tot 150k</button>
+                                    <button class="btn btn-light filter-btn mx-1" id="price-150k_200k" onclick="toggleFilter(this, 'price', '150k_200k')">150k tot 200k</button>
+                                    <button class="btn btn-light filter-btn mx-1" id="price-200k_300k" onclick="toggleFilter(this, 'price', '200k_300k')">200k tot 300k</button>
+                                    <button class="btn btn-light filter-btn mx-1" id="price-300k_500k" onclick="toggleFilter(this, 'price', '300k_500k')">300k tot 500k</button>
+                                    <button class="btn btn-light filter-btn mx-1" id="price-above_500k" onclick="toggleFilter(this, 'price', 'above_500k')">Boven 500k</button>
+                            </div>
                             </div>
                         </div>
                         <div class="row px-5 fw-bold m-auto pb-3 text-center">
