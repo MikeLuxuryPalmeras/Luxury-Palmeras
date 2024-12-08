@@ -53,10 +53,14 @@
 
         let xmlDoc;
         let currentFilter = {};
-        let propertiesPerPage = 15;
+        let propertiesPerPage = 9;
         let currentPage = 1;
         let currentSort = 'none';  // Default to no sorting initially
         let sortedProperties = [];
+
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     attachModalListeners(); // Attach once during page load
+        // });
 
         async function initializePage() {
             try {
@@ -128,38 +132,6 @@
 
                 // Step 1: Get all properties from the XML document
                 let properties = Array.from(xmlDoc.getElementsByTagName("property"));
-
-                // // Step 2: Apply filtering based on currentFilter
-                // let filteredProperties = properties.filter(property => {
-                //     let showProperty = true;
-
-                //     for (let [attribute, value] of Object.entries(currentFilter)) {
-                //         let propertyValue = property.getElementsByTagName(attribute)[0]?.textContent;
-
-                //         // Special handling for attributes like pool that may have specific values
-                //         if (attribute === 'pool') {
-                //             // Convert both to integers for a proper comparison (since pool might be '0' or '1')
-                //             if (parseInt(propertyValue) !== parseInt(value)) {
-                //                 showProperty = false;
-                //                 break;
-                //             }
-                //         } else if (attribute === 'type') {
-                //             // Regular string comparison for type or other string attributes
-                //             if (propertyValue !== value) {
-                //                 showProperty = false;
-                //                 break;
-                //             }
-                //         } else {
-                //             // General case for numeric attributes
-                //             if (parseInt(propertyValue) !== parseInt(value)) {
-                //                 showProperty = false;
-                //                 break;
-                //             }
-                //         }
-                //     }
-
-                //     return showProperty;
-                // });
 
                 // Step 2: Apply filtering based on currentFilter
                 let filteredProperties = properties.filter(property => {
@@ -311,10 +283,13 @@
             } catch (error) {
                 console.error("Error in displayResult:", error);
             }
+            initializeCarousels();
+            attachCarouselListeners();
+            attachModalListeners();
         }
 
         function updatePaginationControls(totalProperties) {
-            let paginationTopContainer = document.getElementById("pagination-top");
+            // let paginationTopContainer = document.getElementById("pagination-top");
             let paginationBottomContainer = document.getElementById("pagination-bottom");
 
             // Calculate the total number of pages
@@ -340,19 +315,19 @@
             }
 
             // Create pagination buttons for the top and bottom containers if they exist
-            if (paginationTopContainer) {
-                createPagination(paginationTopContainer);
-            }
+            // if (paginationTopContainer) {
+            //     createPagination(paginationTopContainer);
+            // }
             if (paginationBottomContainer) {
                 createPagination(paginationBottomContainer);
             }
 
             // Ensure pagination is displayed correctly (even if there's only one page)
             if (totalPages > 1 || totalProperties > 0) {
-                paginationTopContainer.style.display = 'flex';
+                // paginationTopContainer.style.display = 'flex';
                 paginationBottomContainer.style.display = 'flex';
             } else {
-                paginationTopContainer.style.display = 'none';
+                // paginationTopContainer.style.display = 'none';
                 paginationBottomContainer.style.display = 'none';
             }
         }
@@ -394,40 +369,6 @@
             currentPage = 1;  // Reset to the first page when applying a new filter
             displayResult();
         }
-        
-        // function toggleFilter(attribute, value) {
-        //     console.log(`Toggling filter for ${attribute}: ${value}`);
-
-        //     // Get the button by its id
-        //     const buttonId = `${attribute}-${value}`;
-        //     const button = document.getElementById(buttonId);
-
-        //     // Update the current filter: add or remove the filter based on current state
-        //     if (currentFilter[attribute] === value) {
-        //         // If the filter is already active, remove it
-        //         delete currentFilter[attribute];
-        //         button.classList.remove('btn-secondary');
-        //         button.classList.add('btn-light');
-        //     } else {
-        //         // If a different filter of the same type was previously selected, remove it
-        //         if (attribute === 'price' || attribute === 'type' || attribute === 'pool') {
-        //             const filterButtons = document.querySelectorAll(`button[id^="${attribute}-"]`);
-        //             filterButtons.forEach(btn => {
-        //                 btn.classList.remove('btn-secondary');
-        //                 btn.classList.add('btn-light');
-        //             });
-        //         }
-
-        //         // Add the new filter
-        //         currentFilter[attribute] = value;
-        //         button.classList.remove('btn-light');
-        //         button.classList.add('btn-secondary');
-        //     }
-
-        //     // Reset to the first page and refresh the results
-        //     currentPage = 1;
-        //     displayResult();
-        // }
 
         function clearFilters() {
             // Step 1: Clear all filter criteria from the currentFilter object
@@ -457,7 +398,81 @@
             // updatePaginationControls();
         }
 
+        function initializeCarousels() {
+            // Select all carousel elements
+            const carousels = document.querySelectorAll('.carousel');
 
+            carousels.forEach(carousel => {
+                // Check if the carousel is already initialized by Bootstrap
+                if (!bootstrap.Carousel.getInstance(carousel)) {
+                    // Initialize the carousel
+                    new bootstrap.Carousel(carousel);
+                }
+            });
+        }
+
+        function attachCarouselListeners() {
+            // Add event listener for next buttons
+            document.body.addEventListener('click', function (e) {
+                const nextButton = e.target.closest('.carousel-control-next');
+                if (nextButton) {
+                    e.preventDefault(); // Prevent default link behavior
+                    const carouselId = nextButton.getAttribute('data-bs-target').replace('#', ''); // Extract the ID without the '#'
+                    const carouselElement = document.getElementById(carouselId); // Get the carousel element by ID
+                    if (carouselElement) {
+                        const carouselInstance = bootstrap.Carousel.getInstance(carouselElement);
+                        if (carouselInstance) {
+                            carouselInstance.next(); // Trigger 'next' on the carousel
+                        }
+                    }
+                }
+            });
+
+            // Add event listener for prev buttons
+            document.body.addEventListener('click', function (e) {
+                const prevButton = e.target.closest('.carousel-control-prev');
+                if (prevButton) {
+                    e.preventDefault(); // Prevent default link behavior
+                    const carouselId = prevButton.getAttribute('data-bs-target').replace('#', ''); // Extract the ID without the '#'
+                    const carouselElement = document.getElementById(carouselId); // Get the carousel element by ID
+                    if (carouselElement) {
+                        const carouselInstance = bootstrap.Carousel.getInstance(carouselElement);
+                        if (carouselInstance) {
+                            carouselInstance.prev(); // Trigger 'prev' on the carousel
+                        }
+                    }
+                }
+            });
+        }
+        
+        function attachModalListeners() {
+            // Add event listener for "More Information" buttons
+            document.body.addEventListener('click', function (e) {
+                const moreInfoButton = e.target.closest('.more-info-btn, .contact-btn');
+                if (moreInfoButton) {
+                    e.preventDefault(); // Prevent default button behavior
+                    const modalId = moreInfoButton.getAttribute('data-bs-target').replace('#', ''); // Extract modal ID
+                    const modalElement = document.getElementById(modalId); // Get the modal element by ID
+                    if (modalElement) {
+                        const modalInstance = new bootstrap.Modal(modalElement); // Initialize the Bootstrap modal
+                        modalInstance.show(); // Show the modal
+                    }
+                }
+            });
+        }
+        
+        function validateContactForm() {
+            const form = document.getElementById('contactFormHousing');
+
+            // Check if the form is valid using the built-in HTML5 validation API
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated'); // Bootstrap styling for invalid forms
+                return false; // Prevent form submission
+            }
+
+            // If valid, proceed with form submission
+            return true;
+        }
     </script>
 </body>
 

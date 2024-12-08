@@ -112,7 +112,7 @@
         </div>
     </div>
     <!--About-->
-    <div class="container-fluid mb-5 m-auto fs-4">
+    <!-- <div class="container-fluid mb-5 m-auto fs-4">
         <div class="row">
             <div class="col-md-5 col-10 m-auto p-auto rounded flex-wrap" id="invest-intro">
                 <h3 class="text-center fw-bold m-auto pb-4">Veilig investeren doen we samen</h3>        
@@ -159,13 +159,13 @@
                         Neem contact op met Luxury Palmeras</a> – waar dromenvangers realiteit worden!</h3>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Luxury homes -->
     <div class="container-fluid">
         <div class="row px-5">
             <div class="col-12 text-center fw-bold m-auto pb-3">
                 <a class="text-decoration-none text-dark" href="houses.html">
-                    <h1>Luxury Homes</h1>
+                    <h1>Luxury Rentals</h1>
                     <h4 class="text-decoration-underline">Bekijk ons ruim assortiment van verschillende luxe vakantiewoningen.</h4>
                 </a>
             </div>
@@ -304,8 +304,12 @@
             <div class="col-12 text-center fw-bold m-auto pb-3">
                 <h1>Recensies</h1>
             </div>
+            <div>
+                <script src="https://static.elfsight.com/platform/platform.js" async></script>
+                <div class="elfsight-app-c09a0ce2-d3bd-4632-8a2a-834b0afb8474" data-elfsight-app-lazy></div>
+            </div>
         </div>
-        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-5 px-5 p-5 ">
+        <!-- <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-5 px-5 p-5 ">
             <div class="col text-center mx-auto">
                 <div class="card h-100">
                     <div id="recensieCarousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
@@ -348,7 +352,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <!-- contact -->
     <div class="container-fluid px-5 pb-4" id="contact">
@@ -381,142 +385,6 @@
                 <a class="text-decoration-none text-body fw-bold" target="_blank" href="https://www.instagram.com/luxurypalmeras/">
                     <i class="bi bi-instagram" ></i><br>Instagram<br>@luxurypalmeras</a>
             </div>
-        </div>
-    </div>
-    <!-- contact form -->
-    <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Bericht ons!</h4>
-                    <button type="button" class="close btn btn-unique border-0" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form class="needs-validation" id="contactForm" onsubmit="validateContactForm()" method="POST" name="myemailform"
-                    action="https://formspree.io/f/mqkrdvjb">
-                    <div class="modal-body mx-3">
-                        <div class="md-form mb-3">
-                            <i class="fas fa-user prefix grey-text"></i>
-                            <label data-error="wrong" data-success="right" for="naam">Uw naam</label>
-                            <input type="text" id="naam" class="form-control validate" name="name" required="" placeholder="Voor- en achternaam">
-                        </div>
-                        <div class="md-form mb-3">
-                            <i class="fas fa-envelope prefix grey-text"></i>
-                            <label data-error="wrong" data-success="right" for="form29">Uw email address</label>
-                            <input type="email" id="form29" class="form-control validate" aria-describedby="emailHelp" name="email" required>
-                            <div id="emailHelp" class="form-text">Wij delen u email niet met derden.</div>
-                        </div>
-                        <div class="md-form mb-3">
-                            <i class="fas fa-tag prefix grey-text"></i>
-                            <label data-error="wrong" data-success="right" for="telefoon">Telefoonnummer (optioneel)</label>
-                            <input type="telephone" id="telefoon" class="form-control validate" name="telefoon" placeholder="(+316) 123-4567">
-                            </div>
-                        <div class="md-form mb-3">
-                            <input type="hidden" id="email-subject" class="form-control validate" name="_subject" value="Contact Form Submission">
-                        </div>
-                        <div class="md-form">
-                            <i class="fas fa-pencil prefix grey-text"></i>
-                            <label data-error="wrong" data-success="right" for="form8" required>Uw bericht:</label>
-                            <textarea type="text" id="form8" class="md-textarea form-control" rows="4" name="message" required></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn btn-dark" onclick="validateContactForm()" data-bs-target="#verstuurd"
-                            value="send">Verstuur
-                            <i class="fas fa-paper-plane-o ml-1"></i></button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="verstuurd" aria-hidden="true" aria-labelledby="verstuurd" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="verstuurd">Bedankt!</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              Uw ontvangt spoeding een reactie van ons.
-            </div>
-          </div>
-        </div>
-    </div>
-    <!-- Recensie form -->
-    <div class="modal fade" id="modalRecensieForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true" data-bs-backdrop="static">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Schrijf een recensie!</h4>
-                    <button type="button" class="close btn btn-unique border-0" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form class="needs-validation" id="recensieForm" onsubmit="validateForm()" name="recensie" method="POST"
-                    action="https://formspree.io/f/xoqgnoby">
-                    <div class="modal-body mx-3">
-                        <div class="md-form mb-3">
-                            <i class="fas fa-user prefix grey-text"></i>
-                            <label class="form-label" for="naam">Uw naam</label>
-                            <input type="text" id="naam" class="form-control" name="name" required placeholder="Voor- en achternaam">
-                        </div>
-                        <div class="md-form mb-3">
-                            <i class="fas fa-envelope prefix grey-text"></i>
-                            <label class="form-label" for="emailAddress">Uw email address</label>
-                            <input type="email" id="emailAddress" class="form-control" aria-describedby="emailHelp" name="email" required>
-                            <div id="emailHelp" class="form-text">Wij delen u email niet met derden.</div>
-                        </div>
-                        <div class="md-form mb-3">
-                            <i class="bi bi-telephone prefix grey-text"></i>
-                            <label class="form-label" for="telefoon">Telefoonnummer (optioneel)</label>
-                            <input type="telephone" id="telefoon" class="form-control" name="telefoon" placeholder="(+316) 123-4567">
-                        </div>
-                        <div class="md-form mb-3">
-                            <i class="bi bi-house-door-fill prefix grey-text"></i>
-                            <label class="form-label" for="woning">De woning die u heeft gehuurd</label>
-                            <select name="woning" id="woning" required class="form-select">
-                                <option value="" selected="" disabled="">Kies</option>
-                                <option value="Casa Alyssa">Casa Alyssa</option>
-                                <option value="Casa Aaliyah">Casa Aaliyah</option>
-                                <option value="Casa de Felicidad">Casa de Felicidad</option>
-                                <option value="Casa Ruby">Casa Ruby</option>
-                                <option value="Casa Massimo">Casa Massimo</option>
-                                <option value="Casa Luna">Casa Luna</option>
-                                <option value="Casa Jardines">Casa Jardines</option>
-                                <option value="Casa Arne">Casa Arne</option>
-                            </select>
-                        </div>
-                        <div class="md-form mb-3">
-                            <input type="hidden" class="form-control" name="_subject" value="Recensie ontvangen!">
-                        </div>
-                        <div class="md-form">
-                            <i class="fas fa-pencil prefix grey-text"></i>
-                            <label class="form-label" for="message">Uw recensie:</label>
-                            <textarea type="text" id="message" class="md-textarea form-control" rows="4" name="message" required></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" id="recensieSubmit" class="btn btn-dark" onclick="validateForm()">
-                            Verstuur <i class="fas fa-paper-plane-o ml-1"></i></button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="verstuurd" aria-hidden="true" aria-labelledby="verstuurd" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="verstuurd">Bedankt!</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              Bedankt voor u recensie!
-            </div>
-          </div>
         </div>
     </div>
 <footer>

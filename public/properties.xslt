@@ -167,7 +167,7 @@
                         </div>
                     </div>
                     <!-- Pagination controls underneath the filters -->
-                    <div id="pagination-top" class="pagination-container"></div>
+                    <!-- <div id="pagination-top" class="pagination-container"></div> -->
                     <!-- Property Listings - Placed in the #example container -->
                     <div id="example">
                         <div id="property-list"
@@ -197,7 +197,7 @@
                     <div id="pagination-bottom" class="pagination-container"></div>
                 </div>
                 <!-- contact form -->
-                <div class="modal fade" id="verstuurd" aria-hidden="true"
+                <div class="modal fade" id="verstuurd"
                     aria-labelledby="verstuurd" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
@@ -273,7 +273,6 @@
         <div class="property" data-price="{price}" data-surface-area="{surface_area/built}"
             data-plot-area="{surface_area/plot}" data-beds="{beds}" data-baths="{baths}"
             data-pool="{pool}" data-type="{type}">
-
             <div class="col">
                 <div class="card h-100">
                     <div id="{ref}" class="carousel slide carousel-fade card-img-top img-fluid"
@@ -323,7 +322,7 @@
                         </ul>
                     </div>
                     <div class="card-text text-center align-items-end pb-3">
-                        <button type="button" class="btn btn-outline-secondary"
+                        <button type="button" class="btn btn-outline-secondary more-info-btn"
                             data-bs-toggle="modal"
                             data-bs-target="#{ref}imageModal">
                             Meer informatie
@@ -332,8 +331,8 @@
                 </div>
 
                 <!-- Bootstrap Modal Structure -->
-                <div class="modal modal-xl fade" id="{ref}imageModal" aria-hidden="true"
-                    aria-labelledby="{ref}imageModalLabel" tabindex="-1">
+                <div class="modal modal-xl fade" id="{ref}imageModal"
+                    aria-labelledby="{ref}imageModalLabel" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -431,7 +430,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center m-auto pb-3">
-                                    <button class="btn btn-outline-secondary text-center m-auto"
+                                    <button class="btn btn-outline-secondary text-center m-auto contact-btn"
                                         data-bs-target="#{ref}modalContactForm"
                                         data-bs-toggle="modal">Neem contact met ons op!</button>
                                 </div>
@@ -472,7 +471,9 @@
                                             naam</label>
                                         <input type="text" id="form34"
                                             class="form-control validate"
-                                            name="name" />
+                                            name="name">
+                                            <xsl:attribute name="required"/>
+                                        </input>
                                     </div>
                                     <div class="md-form mb-3">
                                         <i class="fas fa-envelope prefix grey-text"></i>
@@ -482,7 +483,9 @@
                                             email address</label>
                                         <input type="email" id="form29"
                                             class="form-control validate"
-                                            aria-describedby="emailHelp" name="email" />
+                                            aria-describedby="emailHelp" name="email">
+                                            <xsl:attribute name="required"/>
+                                        </input>
                                         <div id="emailHelp" class="form-text">Wij delen u email
                                             niet
                                             met derden.</div>
@@ -493,7 +496,9 @@
                                             for="email-subject">Onderwerp</label>
                                         <input type="text" id="email-subject"
                                             class="form-control validate" name="email-subject"
-                                            value="Info {type} in {town}, {province} ({ref})" />
+                                            value="Info {type} in {town}, {province} ({ref})">
+                                            <xsl:attribute name="required"/>
+                                        </input>     
                                     </div>
                                     <div class="md-form mb-3">
                                         <input type="hidden" id="house-ref" name="house-ref"
@@ -506,30 +511,16 @@
                                             bericht:</label>
                                         <textarea type="text" id="form8"
                                             class="md-textarea form-control" rows="4"
-                                            name="message"></textarea>
+                                            name="message" >
+                                            <xsl:attribute name="required"/>
+                                        </textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer d-flex justify-content-center">
                                     <button type="submit" class="btn btn-dark"
-                                        onclick="validateContactForm()"
                                         data-bs-target="#verstuurd"
                                         value="send">Verstuur <i
                                             class="fas fa-paper-plane-o ml-1"></i></button>
-                                </div>
-                                <div class="modal fade" id="verstuurd" aria-hidden="true"
-                                    aria-labelledby="verstuurd" tabindex="-1">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="verstuurd">Bedankt!</h5>
-                                                <button type="button" class="btn-close"
-                                                    data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Bedankt voor u bericht!
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </form>
                         </div>
