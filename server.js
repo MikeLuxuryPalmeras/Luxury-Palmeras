@@ -33,14 +33,10 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
   });
 
-
-// // Handle any API routes or dynamic functionality here
+// Handle any API routes or dynamic functionality here
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from the backend!" });
 });
-
-// Create the server
-// const server = http.createServer(app);
 
 // Proxy endpoint with caching
 app.get("/proxy-xml", async (req, res) => {
