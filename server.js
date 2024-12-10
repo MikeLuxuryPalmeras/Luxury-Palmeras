@@ -35,13 +35,8 @@ app.get("*", (req, res) => {
 
 
 // // Handle any API routes or dynamic functionality here
-// app.get("/api", (req, res) => {
-//   res.json({ message: "Hello from the backend!" });
-// });
-
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
+app.get("/api", (req, res) => {
+  res.json({ message: "Hello from the backend!" });
 });
 
 // Create the server
@@ -84,7 +79,7 @@ app.get("/proxy-xml", async (req, res) => {
 });
 
 // Start the server and trigger JSON creation
-server.listen(PORT, async () => {
+app.listen(PORT, async () => {
     console.log(`Server is running on port ${PORT}`);
     await createJsonFile(); // Automatically fetch XML and create JSON
 });
