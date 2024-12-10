@@ -4,8 +4,7 @@ import fetch from "node-fetch";
 import path from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
-import NodeCache from "node-cache"; // Import NodeCache
-import http from 'http';
+import NodeCache from "node-cache";
 import fs from 'fs';
 import os from "os";
 import { XMLParser } from 'fast-xml-parser';
@@ -31,14 +30,13 @@ const PORT = process.env.PORT || 4000; // Use Heroku's port or default to 4000
 const jsonFilePath = path.join(os.tmpdir(), "data.json"); // Save to a cross-platform temp directory
 
 // Middleware
-
 app.use(cors()); // Enable CORS for all routes
 app.use(express.static(path.join(__dirname, "public"))); // Serve static files from the "public" directory
 
 // Default route to serve your homepage or fallback
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-  });
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "public", "index.html"));
+//   });
 
 // Handle any API routes or dynamic functionality here
 app.get("/api", (req, res) => {
@@ -96,7 +94,6 @@ app.listen(PORT, async () => {
     console.log(`Server is running on port ${PORT}`);
     await createJsonFile(); // Automatically fetch XML and create JSON
 });
-
 
 async function createJsonFile() {
   try {
