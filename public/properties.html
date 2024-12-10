@@ -269,13 +269,13 @@
             console.log("Loading JSON data...");
             progressBar.style.width = "50%";
             progressBar.setAttribute("aria-valuenow", "50");
-            cachedProperties  = await loadDataFromJSON(); // Fetch and process JSON data
+            cachedProperties = await loadDataFromJSON(); // Fetch and process JSON data
 
             // Step 2: Display results
             console.log("Displaying results...");
             progressBar.style.width = "100%";
             progressBar.setAttribute("aria-valuenow", "100");
-            await displayResult(jsonData); // Pass JSON data to display results
+            await displayResult(); // Pass JSON data to display results
 
             console.log("Initialization complete.");
             } catch (error) {
@@ -546,7 +546,7 @@
 
         async function displayResult() {
             try {
-                // Load the JSON data dynamically
+                 // Use cached data instead of fetching again
                 const properties = cachedProperties;
 
                 if (!Array.isArray(properties) || properties.length === 0) {
