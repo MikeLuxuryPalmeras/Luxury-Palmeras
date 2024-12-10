@@ -1,45 +1,65 @@
 #container-head {
     overflow: hidden;
-    max-height: 100%;
-        height: 65dvh;
+    max-height: 65dvh;
+    /* height: 65dvh; */
 }
+
 #container-head-logo {
     overflow: hidden;
     height: 60dvh;
 }
+
 #container-about {
     height: 70dvh;
 }
-#casa1, #casa2, #casa3, #recensies {
-    height: 50dvh;
+
+#casa1,
+#casa2,
+#casa3,
+#recensies {
+    height: 40dvh;
+    object-fit: cover;
+}
+
+.modal-image-rental{
+    overflow: visible;
+    height: 70dvh;
+    width: 70dvw;
+    display: block;
 }
 #carousel1 {
     height: auto;
 }
+
 video {
     width: 100%;
     height: auto;
 }
+
 footer {
     color: black;
     text-align: center;
     position: relative;
 }
+
 #menu {
-    overflow:visible;
+    overflow: visible;
 }
+
 #contact {
     font-size: 15px
 }
-#photo-overview .img-fluid{
+
+#photo-overview {
     display: block;
     width: auto;
-    height: 600px;
 }
+
 #hoverimg:hover {
     opacity: 0.5;
     cursor: pointer;
 }
+
 #hoverimg {
     height: 100;
 }
@@ -48,36 +68,44 @@ footer {
     overflow: auto;
     height: 73dvh;
 }
+
 #wie-zijn-wij {
     height: 73dvh;
 }
-#mike-family{
+
+#mike-family {
     max-height: 73dvh;
 }
+
 #invest-intro {
     max-height: 73dvh;
     overflow: auto;
 }
+
 #invest {
     overflow: auto;
     height: 73dvh;
 }
+
 ul {
     text-align: center;
     list-style-position: inside;
 }
-#list { 
-    color: black; 
-    background: white; 
-    font-size: 30px; 
-} 
-#arrow{ 
-    list-style: none; 
-} 
 
-#arrow::before{
-    content: "\00BB"; 
+#list {
+    color: black;
+    background: white;
+    font-size: 30px;
 }
+
+#arrow {
+    list-style: none;
+}
+
+#arrow::before {
+    content: "\00BB";
+}
+
 #pagination-bottom,
 #pagination-top {
     display: flex;
@@ -121,6 +149,7 @@ ul {
     border-radius: 5px;
     /* Rounded corners for active button */
 }
+
 .pagination-container {
     display: flex;
     flex-wrap: wrap;
@@ -131,4 +160,117 @@ ul {
     /* Add some spacing between buttons */
     padding: 10px 0;
     /* Add padding to give some space around the pagination */
+}
+
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1050;
+    /* Ensure it appears above all other elements */
+}
+
+#loading-overlay.hidden {
+    display: none
+        /* Prevent overrides */
+}
+
+
+#loading-overlay p {
+    font-size: 1.25rem;
+    color: #007bff;
+    /* Matches spinner color */
+    font-weight: bold;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+.progress {
+    height: 20px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Property card container */
+.property-card {
+    border: 1px solid #ddd; /* Optional: Border for a clean card look */
+    border-radius: 0.5rem; /* Rounded corners */
+    background-color: #fff; /* Card background color */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Images in the carousel */
+.property-carousel-image {
+    height: 40dvh;
+    object-fit: cover;
+}
+
+
+
+
+
+/* Placeholder for missing images */
+.property-carousel-image-placeholder {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    height: 40dvh;
+    object-fit: cover;
+    background-color: #e0e0e0; /* Light gray background for placeholders */
+    color: #666;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+}
+
+/* Card body for property details */
+.card-body {
+    padding: 1rem;
+    text-align: center;
+    margin: auto;
+    overflow: hidden; /* Prevent content overflow */
+    display: block; /* Ensures the content does not affect layout */
+}
+
+/* Property title */
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0.5rem;
+}
+
+/* Property details */
+.card-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Card hover effect */
+.property-card:hover {
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+    transform: translateY(-2%);
+    transition: all 0.2s ease-in-out;
 }
