@@ -18,13 +18,8 @@ const XML_API_URL = process.env.XML_API_URL || "https://gaudi-estate.com/thinksp
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Redirect HTTP to HTTPS
-// app.use((req, res, next) => {
-//   if (req.headers['x-forwarded-proto'] !== 'https') {
-//     return res.redirect(301, `https://${req.headers.host}${req.url}`);
-//   }
-//   next();
-// });
+const PORT = process.env.PORT || 4000; // Use Heroku's port or default to 4000
+const jsonFilePath = path.resolve('data.json'); // Absolute path to the data.json file
 
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, "public")));
@@ -37,7 +32,15 @@ app.get("/api", (req, res) => {
   res.json({ message: "Hello from the backend!" });
 });
 
-// // Create the server
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
+
+// Create the server
+const server = http.createServer(app);
+
+// Create the server
 // const server = http.createServer((req, res) => {
 //     if (req.url === '/data.json') {
 //         // Serve the data.json file
@@ -57,8 +60,6 @@ app.get("/api", (req, res) => {
 //     }
 // });
 
-const PORT = process.env.PORT || 4000; // Use Heroku's port or default to 4000
-const jsonFilePath = path.resolve('data.json'); // Absolute path to the data.json file
 
 // // Create the server
 // const server = http.createServer(async (req, res) => {
