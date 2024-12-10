@@ -126,9 +126,8 @@ app.get("/proxy-xml", async (req, res) => {
 
 // Start the server and trigger JSON creation
 server.listen(PORT, async () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-  console.log(`Access data.json at http://localhost:${PORT}/data.json`);
-  await createJsonFile(); // Automatically fetch XML and create JSON
+    console.log(`Server is running on port ${PORT}`);
+    await createJsonFile(); // Automatically fetch XML and create JSON
 });
 
 // // Proxy endpoint with caching
@@ -163,7 +162,6 @@ server.listen(PORT, async () => {
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
-
 
 function xmlToJson(xml) {
   // Helper function to process a single node
@@ -224,7 +222,6 @@ function xmlToJson(xml) {
   // Start processing the root element
   return processNode(xml.documentElement);
 }
-
 
 // Function to fetch and save JSON on server start
 async function createJsonFile() {
