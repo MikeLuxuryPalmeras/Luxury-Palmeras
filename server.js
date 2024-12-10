@@ -5,11 +5,12 @@ import path from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
 import NodeCache from "node-cache"; // Import NodeCache
-
 import http from 'http';
 import fs from 'fs';
-import { DOMParser } from 'xmldom';
+// import { DOMParser } from 'xmldom';
+import { XMLParser } from 'fast-xml-parser';
 
+// Setup
 const app = express();
 const cache = new NodeCache({ stdTTL: 300 }); // Cache for 5 minutes (300 seconds)
 const XML_API_URL = process.env.XML_API_URL || "https://gaudi-estate.com/thinkspain.xml";
@@ -19,18 +20,19 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 4000; // Use Heroku's port or default to 4000
-const jsonFilePath = path.resolve('data.json'); // Absolute path to the data.json file
+//const jsonFilePath = path.resolve('data.json'); // Absolute path to the data.json file
+const jsonFilePath = path.join('/tmp', 'data.json');
 
-// Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, "public")));
+// Middleware
+
+app.use(cors()); // Enable CORS for all routes
+app.use(express.static(path.join(__dirname, "public"))); // Serve static files from the "public" directory
 
 // Default route to serve your homepage or fallback
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
   });
 
-// Enable CORS for all routes
-app.use(cors());
 
 // Handle any API routes or dynamic functionality here
 app.get("/api", (req, res) => {
@@ -44,55 +46,6 @@ app.use((err, req, res, next) => {
 
 // Create the server
 const server = http.createServer(app);
-
-// Create the server
-// const server = http.createServer((req, res) => {
-//     if (req.url === '/data.json') {
-//         // Serve the data.json file
-//         fs.readFile(dataFilePath, 'utf8', (err, data) => {
-//             if (err) {
-//                 res.writeHead(404, { 'Content-Type': 'text/plain' });
-//                 res.end('File not found');
-//                 return;
-//             }
-
-//             res.writeHead(200, { 'Content-Type': 'application/json' });
-//             res.end(data);
-//         });
-//     } else {
-//         res.writeHead(200, { 'Content-Type': 'text/plain' });
-//         res.end('Server is running');
-//     }
-// });
-
-
-// // Create the server
-// const server = http.createServer(async (req, res) => {
-//   // Add CORS headers
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-//   if (req.url === '/data.json') {
-//       fs.readFile(jsonFilePath, 'utf8', (err, data) => {
-//           if (err) {
-//               console.error(`Error reading file: ${err.message}`);
-//               res.writeHead(404, { 'Content-Type': 'text/plain' });
-//               res.end('File not found');
-//               return;
-//           }
-
-//           res.writeHead(200, { 'Content-Type': 'application/json' });
-//           res.end(data);
-//       });
-//   } else if (req.url === '/' || req.url === '/index.html') {
-//       res.writeHead(200, { 'Content-Type': 'text/html' });
-//       res.end('<h1>Welcome to the server</h1><p>Access <a href="/data.json">data.json</a></p>');
-//   } else {
-//       res.writeHead(404, { 'Content-Type': 'text/plain' });
-//       res.end('Resource not found');
-//   }
-// });
 
 // Proxy endpoint with caching
 app.get("/proxy-xml", async (req, res) => {
@@ -110,7 +63,7 @@ app.get("/proxy-xml", async (req, res) => {
       const xml = await response.text();
 
       // Parse the XML to JSON
-      const parser = new DOMParser();
+      const parser = new XMLParser();
       const xmlDoc = parser.parseFromString(xml, "application/xml");
       const json = xmlToJson(xmlDoc);
 
@@ -135,36 +88,6 @@ server.listen(PORT, async () => {
     console.log(`Server is running on port ${PORT}`);
     await createJsonFile(); // Automatically fetch XML and create JSON
 });
-
-// // Proxy endpoint with caching
-// app.get("/proxy-xml", async (req, res) => {
-//   try {
-//     // Check if XML data is cached
-//     const cachedXML = cache.get("xmlData");
-//     if (cachedXML) {
-//       console.log("Serving cached XML data");
-//       res.set("Content-Type", "application/xml");
-//       return res.send(cachedXML);
-//     }
-
-//     // Fetch XML data if not cached
-//     const response = await fetch("https://gaudi-estate.com/thinkspain.xml");
-//     if (!response.ok) throw new Error(`Error fetching XML: ${response.statusText}`);
-//     const xml = await response.text();
-
-//     // Store XML data in cache
-//     cache.set("xmlData", xml);
-
-//     // Serve the XML response
-//     res.set("Content-Type", "application/xml");
-//     res.send(xml);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send("Error fetching XML data");
-//   }
-// });
-
-
 
 function xmlToJson(xml) {
   // Helper function to process a single node
@@ -233,7 +156,7 @@ async function createJsonFile() {
       if (!response.ok) throw new Error(`Failed to fetch XML: ${response.statusText}`);
       const xml = await response.text();
 
-      const parser = new DOMParser();
+      const parser = new XMLParser();
       const xmlDoc = parser.parseFromString(xml, 'application/xml');
       const json = xmlToJson(xmlDoc);
 
