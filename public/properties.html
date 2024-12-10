@@ -257,10 +257,7 @@
         let propertiesPerPage = 9;
         let currentPage = 1;
         let currentSort = 'none';  // Default to no sorting initially
-        // let sortedProperties = [];
-        // let loadedProperties = []; // Holds the loaded JSON data
-        // let filteredProperties = []; // Holds the filtered and sorted properties
-
+    
         async function initializePage() {
             const progressBar = document.getElementById("progress-bar");
 
@@ -520,8 +517,11 @@
     
         async function loadDataFromJSON() {
             try {
-                // Fetch the JSON file from the server on port 4000
-                const response = await fetch('http://localhost:4000/data.json');
+                // Use the correct server URL dynamically
+                const serverURL = window.location.origin; // Automatically detects the current domain
+                const response = await fetch(`${serverURL}/data.json`);
+                // // Fetch the JSON file from the server on port 4000
+                // const response = await fetch('http://localhost:4000/data.json');
 
                 if (!response.ok) {
                     throw new Error(`Failed to fetch JSON: ${response.statusText}`);
@@ -543,38 +543,6 @@
                 console.error("Error loading JSON data:", error);
                 throw error;
             }
-        }
-
-        async function loadDataFromXML() {
-            try {
-                const response = await fetch("https://luxury-palmeras-5b89d300db8d.herokuapp.com/proxy-xml");
-                const xmlText = await response.text();
-                const parser = new DOMParser();
-                xmlDoc = parser.parseFromString(xmlText, "text/xml");
-                
-                // Check for parsing errors
-                if (!xmlDoc || xmlDoc.getElementsByTagName("parsererror").length) {
-                    console.error("Failed to parse XML.");
-                    return;
-                }
-                // Initialize sortedProperties by applying the default sorting and filtering
-                applySort();
-            } catch (error) {
-                console.error("Error loading or parsing XML:", error);
-            }
-        }
-
-        function loadXMLDoc(filename) {
-            let xhttp = new XMLHttpRequest();
-            xhttp.open("GET", filename, false);
-            xhttp.send("");
-            const xmlResponse = xhttp.responseXML;
-
-            if (!xmlResponse) {
-                console.error("Failed to load XSLT.");
-            }
-
-            return xmlResponse;
         }
 
         async function displayResult() {

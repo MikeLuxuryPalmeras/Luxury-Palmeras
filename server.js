@@ -24,6 +24,11 @@ const jsonFilePath = path.resolve('data.json'); // Absolute path to the data.jso
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, "public")));
 
+// Default route to serve your homepage or fallback
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+  });
+
 // Enable CORS for all routes
 app.use(cors());
 
@@ -159,10 +164,7 @@ server.listen(PORT, async () => {
 //   }
 // });
 
-// Default route to serve your homepage or fallback
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+
 
 function xmlToJson(xml) {
   // Helper function to process a single node
