@@ -34,10 +34,10 @@ app.get("*", (req, res) => {
   });
 
 
-// Handle any API routes or dynamic functionality here
-app.get("/api", (req, res) => {
-  res.json({ message: "Hello from the backend!" });
-});
+// // Handle any API routes or dynamic functionality here
+// app.get("/api", (req, res) => {
+//   res.json({ message: "Hello from the backend!" });
+// });
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
@@ -45,7 +45,7 @@ app.use((err, req, res, next) => {
 });
 
 // Create the server
-const server = http.createServer(app);
+// const server = http.createServer(app);
 
 // Proxy endpoint with caching
 app.get("/proxy-xml", async (req, res) => {
