@@ -7,14 +7,14 @@ import cors from "cors";
 import NodeCache from "node-cache"; // Import NodeCache
 import http from 'http';
 import fs from 'fs';
-// import { DOMParser } from 'xmldom';
-
+import os from "os";
 import { XMLParser } from 'fast-xml-parser';
 const options = {
     ignoreAttributes: false, // Keep attributes in the parsed JSON
     attributeNamePrefix: "@_", // Prefix for attributes
     allowBooleanAttributes: true, // Handle boolean attributes
     textNodeName: "#text", // Name for text nodes
+    ignoreDeclaration: true,
 };
 
 // Setup
@@ -28,7 +28,7 @@ const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 4000; // Use Heroku's port or default to 4000
 //const jsonFilePath = path.resolve('data.json'); // Absolute path to the data.json file
-const jsonFilePath = path.join('/tmp', 'data.json');
+const jsonFilePath = path.join(os.tmpdir(), "data.json"); // Save to a cross-platform temp directory
 
 // Middleware
 
@@ -43,6 +43,17 @@ app.get("*", (req, res) => {
 // Handle any API routes or dynamic functionality here
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from the backend!" });
+});
+
+app.get('/data.json', (req, res) => {
+    fs.readFile(jsonFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error(`Error reading file: ${err.message}`);
+            return res.status(404).send('File not found');
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.send(data);
+    });
 });
 
 // Proxy endpoint with caching
@@ -62,13 +73,13 @@ app.get("/proxy-xml", async (req, res) => {
 
       // Parse the XML to JSON
       const parser = new XMLParser(options);
-      const json = parser.parse(xml);
+      const parsedJson = parser.parse(xml);
+      const json = parsedJson?.root || parsedJson;
 
-      // Save JSON to file
-      const jsonFilePath = "data.json";
+      // Write the flattened JSON to the specified file
       fs.writeFileSync(jsonFilePath, JSON.stringify(json, null, 2));
-      console.log(`JSON saved to ${jsonFilePath}`);
-
+      console.log(`JSON file created at ${jsonFilePath}`);
+    
       // Store XML data in cache
       cache.set("xmlData", xml);
 
@@ -86,67 +97,6 @@ app.listen(PORT, async () => {
     await createJsonFile(); // Automatically fetch XML and create JSON
 });
 
-// function xmlToJson(xml) {
-//   // Helper function to process a single node
-//   function processNode(node) {
-//       let obj = {};
-
-//       // Process attributes
-//       if (node.attributes && node.attributes.length > 0) {
-//           obj["@attributes"] = {};
-//           for (let i = 0; i < node.attributes.length; i++) {
-//               const attr = node.attributes[i];
-//               obj["@attributes"][attr.nodeName] = attr.nodeValue;
-//           }
-//       }
-
-//       // Process child nodes
-//       const childNodes = Array.from(node.childNodes).filter(
-//           (child) => child.nodeType === 1 || (child.nodeType === 3 && child.nodeValue.trim() !== "")
-//       );
-
-//       if (childNodes.length > 0) {
-//           for (let child of childNodes) {
-//               if (child.nodeType === 1) { // Element node
-//                   const nodeName = child.nodeName;
-
-//                   // Special handling for `images` node
-//                   if (nodeName === "image" && node.nodeName === "images") {
-//                       if (!obj[nodeName]) {
-//                           obj[nodeName] = [];
-//                       }
-//                       obj[nodeName].push(processNode(child));
-//                   } else {
-//                       // Handle regular nodes
-//                       if (!obj[nodeName]) {
-//                           obj[nodeName] = processNode(child);
-//                       } else {
-//                           if (!Array.isArray(obj[nodeName])) {
-//                               obj[nodeName] = [obj[nodeName]];
-//                           }
-//                           obj[nodeName].push(processNode(child));
-//                       }
-//                   }
-//               } else if (child.nodeType === 3) { // Text node
-//                   const text = child.nodeValue.trim();
-//                   if (text) {
-//                       obj = text;
-//                   }
-//               }
-//           }
-//       } else if (node.textContent.trim()) {
-//           // If no child nodes, return text content
-//           obj = node.textContent.trim();
-//       }
-
-//       return obj;
-//   }
-
-//   // Start processing the root element
-//   return processNode(xml.documentElement);
-// }
-
-// Function to fetch and save JSON on server start
 
 async function createJsonFile() {
   try {
@@ -156,10 +106,13 @@ async function createJsonFile() {
 
       // Parse the XML to JSON
       const parser = new XMLParser(options);
-      const json = parser.parse(xml);
-
+      const parsedJson = parser.parse(xml);
+      // Remove wrapping objects, keeping only the contents of "root"
+      const json = parsedJson?.root || parsedJson;
+      
+      // Write the flattened JSON to the specified file
       fs.writeFileSync(jsonFilePath, JSON.stringify(json, null, 2));
-      console.log(`JSON saved to ${jsonFilePath}`);
+      console.log(`JSON file created at ${jsonFilePath}`);
   } catch (error) {
       console.error(`Error creating JSON file: ${error.message}`);
   }
