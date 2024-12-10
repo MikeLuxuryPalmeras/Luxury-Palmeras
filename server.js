@@ -60,33 +60,33 @@ app.get("/api", (req, res) => {
 const PORT = process.env.PORT || 4000; // Use Heroku's port or default to 4000
 const jsonFilePath = path.resolve('data.json'); // Absolute path to the data.json file
 
-// Create the server
-const server = http.createServer(async (req, res) => {
-  // Add CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+// // Create the server
+// const server = http.createServer(async (req, res) => {
+//   // Add CORS headers
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  if (req.url === '/data.json') {
-      fs.readFile(jsonFilePath, 'utf8', (err, data) => {
-          if (err) {
-              console.error(`Error reading file: ${err.message}`);
-              res.writeHead(404, { 'Content-Type': 'text/plain' });
-              res.end('File not found');
-              return;
-          }
+//   if (req.url === '/data.json') {
+//       fs.readFile(jsonFilePath, 'utf8', (err, data) => {
+//           if (err) {
+//               console.error(`Error reading file: ${err.message}`);
+//               res.writeHead(404, { 'Content-Type': 'text/plain' });
+//               res.end('File not found');
+//               return;
+//           }
 
-          res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.end(data);
-      });
-  } else if (req.url === '/' || req.url === '/index.html') {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
-      res.end('<h1>Welcome to the server</h1><p>Access <a href="/data.json">data.json</a></p>');
-  } else {
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      res.end('Resource not found');
-  }
-});
+//           res.writeHead(200, { 'Content-Type': 'application/json' });
+//           res.end(data);
+//       });
+//   } else if (req.url === '/' || req.url === '/index.html') {
+//       res.writeHead(200, { 'Content-Type': 'text/html' });
+//       res.end('<h1>Welcome to the server</h1><p>Access <a href="/data.json">data.json</a></p>');
+//   } else {
+//       res.writeHead(404, { 'Content-Type': 'text/plain' });
+//       res.end('Resource not found');
+//   }
+// });
 
 // Proxy endpoint with caching
 app.get("/proxy-xml", async (req, res) => {
@@ -229,7 +229,7 @@ function xmlToJson(xml) {
 // Function to fetch and save JSON on server start
 async function createJsonFile() {
   try {
-      const response = await fetch('https://gaudi-estate.com/thinkspain.xml');
+      const response = await fetch(XML_API_URL);
       if (!response.ok) throw new Error(`Failed to fetch XML: ${response.statusText}`);
       const xml = await response.text();
 
