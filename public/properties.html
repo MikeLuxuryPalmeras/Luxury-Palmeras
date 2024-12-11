@@ -128,8 +128,8 @@
                 <!-- Collapsible Filter Section -->
                 <div class="collapse navbar-collapse" id="filterMenu">
                     <!-- Filters for Slaapkamers, Badkamers, Zwembaden, and Type Woning -->
-                    <div class="row px-5 fw-bold text-center">
-                        <div class="col ">
+                    <div class="row px-5 fw-bold text-center m-auto flex-wrap">
+                        <div class="col">
                             <div class="mb-3">
                                 <label>Filter op Slaapkamers:</label>
                                 <br />
@@ -163,19 +163,17 @@
                                 <button id="type-Apartment" class="btn btn-light m-1 col" onclick="toggleFilter(this, 'type', 'Apartment')">Appartement</button>
                             </div>
                         </div>
-                    </div>
-                    <!-- Price Range Filters -->
-                    <div class="row fw-bold text-center">
-                        <div class="price-filters col">
+                        <!-- Price Range Filters -->
+                        <div class="col">
                             <div class="mb-3">
                                 <label>Prijs klasse:</label>
                                 <br />
-                                <button class="btn btn-light filter-btn m-1" id="price-below_100k" onclick="toggleFilter(this, 'price', 'below_100k')">Onder 100k</button>
-                                <button class="btn btn-light filter-btn m-1" id="price-100k_150k" onclick="toggleFilter(this, 'price', '100k_150k')">100k tot 150k</button>
-                                <button class="btn btn-light filter-btn m-1" id="price-150k_200k" onclick="toggleFilter(this, 'price', '150k_200k')">150k tot 200k</button>
-                                <button class="btn btn-light filter-btn m-1" id="price-200k_300k" onclick="toggleFilter(this, 'price', '200k_300k')">200k tot 300k</button>
-                                <button class="btn btn-light filter-btn m-1" id="price-300k_500k" onclick="toggleFilter(this, 'price', '300k_500k')">300k tot 500k</button>
-                                <button class="btn btn-light filter-btn m-1" id="price-above_500k" onclick="toggleFilter(this, 'price', 'above_500k')">Boven 500k</button>
+                                <button class="btn btn-light filter-btn m-1 col" id="price-below_100k" onclick="toggleFilter(this, 'price', 'below_100k')">Onder 100k</button>
+                                <button class="btn btn-light filter-btn m-1 col" id="price-100k_150k" onclick="toggleFilter(this, 'price', '100k_150k')">100k tot 150k</button>
+                                <button class="btn btn-light filter-btn m-1 col" id="price-150k_200k" onclick="toggleFilter(this, 'price', '150k_200k')">150k tot 200k</button>
+                                <button class="btn btn-light filter-btn m-1 col" id="price-200k_300k" onclick="toggleFilter(this, 'price', '200k_300k')">200k tot 300k</button>
+                                <button class="btn btn-light filter-btn m-1 col" id="price-300k_500k" onclick="toggleFilter(this, 'price', '300k_500k')">300k tot 500k</button>
+                                <button class="btn btn-light filter-btn m-1 col" id="price-above_500k" onclick="toggleFilter(this, 'price', 'above_500k')">Boven 500k</button>
                             </div>
                         </div>
                     </div>
