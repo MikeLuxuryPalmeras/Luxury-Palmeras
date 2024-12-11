@@ -21,6 +21,12 @@
     object-fit: cover;
 }
 
+#imageNumber {
+    font-size: 0.9rem;
+    margin: 0.5rem;
+    z-index: 1050; /* Ensure it appears above carousel controls */
+}
+
 .modal-image-rental{
     overflow: visible;
     height: 70dvh;
