@@ -308,7 +308,7 @@
             </div>
             <div class="col-lg-2 col-md-4 col-6 p-1 m-auto text-center">
                 <a class="text-decoration-none text-body fw-bold" target="_blank" href="" data-bs-toggle="modal" data-bs-target="#modalContactForm">
-                    <i class="bi bi-envelope-at-fill"></i><p>Mike<br>@Luxurypalmeras.com</p></a>
+                    <i class="bi bi-envelope-at-fill h3"></i><p>Mike<br>@Luxurypalmeras.com</p></a>
             </div>
             <div class="col-lg-2 col-md-4 col-6 p-1 m-auto text-center">
                 <a class="text-decoration-none text-body fw-bold" target="_blank"
@@ -352,10 +352,15 @@
                         </div>
                         <div class="md-form mb-3">
                             <i class="fas fa-tag prefix grey-text"></i>
-                            <label data-error="wrong" data-success="right" for="telefoon">Telefoonnummer
-                                (optioneel)</label>
+                            <label data-error="wrong" data-success="right" for="telefoon">Telefoonnummer</label>
                             <input type="telephone" id="telefoon" class="form-control validate" name="telefoon"
-                                placeholder="(+316) 123-4567">
+                                placeholder="(+316) 123-4567" required>
+                        </div>
+                        <div class="md-form mb-3">
+                            <i class="fas bi-house-heart-fill prefix grey-text fs-4"></i>
+                            <label data-error="wrong" data-success="right" for="woning">Woning</label>
+                            <input type="text" id="woning" class="form-control validate" name="woning"
+                                placeholder="Welke woning betreft uw aanvraag?" required>
                         </div>
                         <div class="md-form mb-3">
                             <input type="hidden" id="form32" class="form-control validate" name="_subject"
