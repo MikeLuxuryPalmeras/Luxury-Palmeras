@@ -184,6 +184,28 @@
                                 <button class="btn btn-light filter-btn m-1 col" id="price-above_500k" onclick="toggleFilter(this, 'price', 'above_500k')">Boven 500k</button>
                             </div>
                         </div>
+                        <!-- New Filter: Reference Search Bar -->
+                        <div class="col">
+                            <div class="mb-3">
+                            <label>Zoek op Referentie:</label>
+                            <input
+                                type="text"
+                                id="refSearch"
+                                class="form-control"
+                                placeholder="Voer referentie in"
+                                oninput="updateRefFilter(this)"
+                            />
+                            </div>
+                        </div>
+                        <!-- New Filter: Province Dropdown -->
+                        <div class="col">
+                            <div class="mb-3">
+                            <label>Filter op Regio:</label>
+                            <select id="provinceFilter" class="form-control" onchange="updateProvinceFilter(this)">
+                                <!-- The options will be populated dynamically -->
+                            </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -345,7 +367,10 @@
             progressBar.style.width = "50%";
             progressBar.setAttribute("aria-valuenow", "50");
             cachedProperties = await loadDataFromJSON(); // Fetch and process JSON data
-
+            
+            // Now populate the province dropdown dynamically
+            populateProvinceDropdown();
+            
             // Step 2: Display results
             console.log("Displaying results...");
             progressBar.style.width = "100%";
@@ -412,6 +437,7 @@
                         <div class="card-body pt-3 m-auto">
                             <h4 class="card-title">${property.type || "Property"} in ${property.town || "Unknown"}, ${property.province || "Unknown"}</h4>
                             <h5>Prijs: €${property.price || "N/A"}</h5>
+                            <h6>Reference number: ${ref}</h6>
                             <ul class="h6 list-unstyled">
                                 <li>${property.beds || "N/A"} Slaapkamers</li>
                                 <li>${property.baths || "N/A"} Badkamers</li>
@@ -505,6 +531,7 @@
                                             </div>
                                             <div class="row pb-3">
                                                 <h4 class="fw-bold">Omschrijving</h4>
+                                                <h6>Reference number: ${ref}</h6>
                                                 <p>${property.desc?.nl || "Geen beschrijving beschikbaar."}</p>
                                             </div>
                                         </div>
@@ -671,6 +698,18 @@
                         } else if (attribute === "type") {
                             propertyValue = property.type || "";
                             if (propertyValue.toLowerCase() !== value.toLowerCase()) {
+                                showProperty = false;
+                            }
+                        } else if (attribute === "province") {
+                            propertyValue = property.province || "";
+                            // If the filter is not "all" and the property's province does not match, exclude it.
+                            if (value.toLowerCase() !== "all" && propertyValue.toLowerCase() !== value.toLowerCase()) {
+                                showProperty = false;
+                            }
+                        } else if (attribute === "ref") {
+                            propertyValue = property.ref || "";
+                            // Check if the property reference contains the search value (case-insensitive)
+                            if (!propertyValue.toLowerCase().includes(value.toLowerCase())) {
                                 showProperty = false;
                             }
                         }
@@ -873,6 +912,17 @@
                 currentSort = 'none';  // Reset the global sorting state
             }
 
+            // Step 3.5: Reset the province dropdown to "all" (All provinces)
+            const provinceDropdown = document.getElementById('provinceFilter');
+            if (provinceDropdown) {
+                provinceDropdown.value = 'all';
+            }
+
+            // Step 3.6: Clear the reference textbox
+            const refTextbox = document.getElementById('refSearch');
+            if (refTextbox) {
+                refTextbox.value = '';
+            }
             // Step 4: Reset pagination to the first page
             currentPage = 1;
 
@@ -945,7 +995,62 @@
                 }
             });
         }
-        
+
+        function updateRefFilter(element) {
+            // Trim whitespace and update the filter for the reference search
+            currentFilter.ref = element.value.trim();
+            displayResult();
+        }
+                
+        function populateProvinceDropdown() {
+            const dropdown = document.getElementById("provinceFilter");
+            if (!dropdown) return;
+            
+            // Clear existing options, if any
+            dropdown.innerHTML = "";
+
+            // Add the default "Alle Regio's" option
+            const defaultOption = document.createElement("option");
+            defaultOption.value = "all";
+            defaultOption.textContent = "Alle Regio's";
+            dropdown.appendChild(defaultOption);
+
+            // Ensure cachedProperties is available and is an array
+            if (cachedProperties && Array.isArray(cachedProperties)) {
+                // Use a Map to gather unique province values ignoring capitalization differences.
+                // The key is the province in lower-case, and the value is the original province string.
+                const provincesMap = new Map();
+                cachedProperties.forEach(property => {
+                    if (property.province) {
+                        const normalizedProvince = property.province.toLowerCase();
+                        if (!provincesMap.has(normalizedProvince)) {
+                            provincesMap.set(normalizedProvince, property.province);
+                        }
+                    }
+                });
+
+                // Convert the Map values to an array, sort them ignoring case, and create an <option> for each province.
+                const provincesArray = Array.from(provincesMap.values()).sort((a, b) =>
+                    a.toLowerCase().localeCompare(b.toLowerCase())
+                );
+                
+                provincesArray.forEach(province => {
+                    const option = document.createElement("option");
+                    option.value = province;
+                    option.textContent = province;
+                    dropdown.appendChild(option);
+                });
+            }
+        }
+
+
+        function updateProvinceFilter(element) {
+            // Update the currentFilter with the selected province.
+            // If "all" is selected, you may choose to remove or ignore the province filter.
+            currentFilter.province = element.value;
+            displayResult();
+        }
+
         function validateContactForm() {
             const form = document.getElementById('contactFormHousing');
 
