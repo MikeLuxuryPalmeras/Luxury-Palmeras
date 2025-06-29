@@ -1,0 +1,44 @@
+# Git and version control
+.git/
+.gitignore
+
+# Local config and environment files
+.vscode/
+.idea/
+*.env
+*.local
+
+# Logs and temp files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+
+# Test files and folders
+tests/
+test/
+__tests__/
+coverage/
+*.test.js
+*.spec.js
+
+# Documentation and markdown
+docs/
+*.md
+
+# Build and output folders (if you build locally)
+build/
+dist/
+.next/
+out/
+
+# Node modules (usually included by Heroku, but you can exclude if building locally)
+node_modules/
+
+# Miscellaneous
+.vagrant/
+.envrc
+*.sublime-project
+*.sublime-workspace
