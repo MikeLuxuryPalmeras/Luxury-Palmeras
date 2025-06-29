@@ -34,6 +34,9 @@ dist/
 .next/
 out/
 
+# Static assets better served via CDN or cloud storage
+public/images/
+
 # Node modules (usually included by Heroku, but you can exclude if building locally)
 node_modules/
 
