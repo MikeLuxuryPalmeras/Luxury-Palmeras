@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "bs5-lightbox": "^1.8.3",
+    "cloudinary": "^2.7.0",
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "fast-xml-parser": "^4.5.0",

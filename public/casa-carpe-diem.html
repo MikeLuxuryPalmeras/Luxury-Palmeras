@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
+    <title>Luxury Palmeras - Casa Carpe Diem</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Web analytics -->
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_UNm11m2pPVK8c2MoFp7bPnUAhXH55Mo11cFgixCS0nW', {
+            api_host:'https://us.i.posthog.com',
+            person_profiles: 'identified_only' // or 'always' to create profiles for anonymous users as well
+        })
+    </script>
+    <!-- translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'nl', includedLanguages: 'en,es,de,fr', 
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div class="sticky-top" id="google_translate_element"></div>
+    <script src='https://guests.lodgepilot.com/calendar-widget.js'></script>
+</head>
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg bg-white text-white pb-4 m-auto fs-4" id="navigation">
+        <div class="container-fluid" id="navigation">
+            <a class="navbar-brand h3 text-black align-middle" href="index.html">
+                <img src="images/LP-icon.png" class="image-responsive d-inline-block align-middle" width="40" height="40" alt="Logo" />
+                Luxury Palmeras </a>
+            <div class="nav align-items-end px-2">
+                <button class="navbar-toggler ml-2 pl-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarNavDropdown">
+                    <ul class="navbar-nav pull-left">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Luxury invest.html">Luxury
+                                Invest</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="properties.html">Luxury
+                                Properties</a>
+                        </li>
+                        <li class="nav-item" id="menu">
+                            <a class="nav-link active" href="houses.html" aria-expanded="false">Luxury Rentals</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="keyholding.html">
+                                Keyholding</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Over ons</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--Intro-->
+    <div class="container-fluid fs-5 mb-3">
+        <div class="row gap-3">
+            <div class="col-12 text-center fw-bold m-auto pb-1">
+                <h1>Casa Carpe Diem</h1>
+                <a class="text-body fw-bold h4" target="_blank" 
+                href="https://www.google.com/maps/place/Dehesa+de+Campoamor,+Alicante,+Spain">
+                    <i class="bi bi-geo-fill h3 py-5"></i>Dehesa de Campoamor
+                </a> 
+            </div>
+            <div class="col-xl-6 col-lg-8 col-md-9 col-sm-8 mx-auto flex-wrap">           
+                <div class="pb-2 m-2 text-justify text-center text-wrap">
+                    <h5>Casa Carpe Diem – Luxe & Comfort aan de Costa Blanca.</h5>
+                    <h5>Exclusief verblijf in Amanecer D’luxe, Dehesa de Campoamor</h5>
+                    <p>Geniet van zon, zee en stijlvol comfort in Casa Carpe Diem – een modern en luxueus appartement 
+                        in het prestigieuze complex Amanecer D’luxe aan de Costa Blanca. 
+                        Perfect voor wie op zoek is naar rust, ruimte én een vleugje luxe tijdens de vakantie.
+                    </p>
+                    <p>Casa Carpe Diem is een ruim appartement op de eerste verdieping (met lift) en van alle gemakken voorzien:</p>
+                    <ul class="fs-5">
+                        <li>2 comfortabele slaapkamers – ideaal voor gezinnen of stellen
+                        </li>
+                        <li>2 moderne badkamers – privacy en gemak voor iedereen
+                        </li>
+                        <li>Volledig uitgeruste keuken – kook zoals thuis
+                        </li>
+                        <li> Inclusief bedlinnen & handdoeken – inpakken en vertrekken maar!
+                        </li>
+                    </ul>
+                    <p>Het luxe Amanecer D’luxe-complex biedt extra comfort. Faciliteiten van het complex:</p>
+                    <ul class="fs-5">
+                        <li>Groot gemeenschappelijk zwembad – heerlijk afkoelen onder de Spaanse zon
+                        </li>
+                        <li>Moderne fitnessruimte – blijf fit tijdens je verblijf
+                        </li>
+                    </ul>
+                    <p>De locatie? Ideaal! Casa Carpe Diem ligt in het geliefde Dehesa de Campoamor, 
+                        bekend om zijn prachtige stranden, groene omgeving en ontspannen sfeer:
+                    </p>
+                    <ul class="fs-5">
+                        <li>Strand op slechts 3 km afstand
+                        </li>
+                        <li>Supermarkt op 1 km afstand
+                        </li>
+                        <li>Restaurants & cafés op 1 km afstand – proef de Spaanse keuken
+                        </li>
+                    </ul>
+                    <p>Waarom kiezen voor Casa Carpe Diem?
+                        Of je nu wilt zonnebaden, wandelen, golfen of gewoon helemaal tot rust wilt komen 
+                        – Casa Carpe Diem biedt je het perfecte vakantiegevoel, in stijl. 
+                        Luxe, comfort en een toplocatie: wat wil je nog meer?                   
+                    </p>
+                </div>           
+            </div>
+        </div>
+    </div>
+    <!-- Impressie -->
+    <div class="container" id="photo-overview">
+        <div class="row mx-auto">
+            <div class="col-10 text-center mx-auto p-2">
+                <h1>Impressie</h1>
+            </div>
+            <div class="col-12 col-md-10 mt-3 col-lg-6 text-center mx-auto p-2" data-ripple-color="light" data-bs-toggle="modal" data-bs-target="#gallery" id="hoverimg">
+                <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213333/image00008_r6yqo3.jpg" class="img-fluid rounded" alt="image">
+            </div>
+            <div class="col-12 col-md-10 mt-3 col-lg-6 text-center mx-auto p-2" data-ripple-color="light" data-bs-toggle="modal" data-bs-target="#gallery" id="hoverimg">
+                <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213335/image00012_xqmb7n.jpg" class="img-fluid rounded" alt="image">
+            </div>
+            <div class="col-12 col-md-10 mt-3 col-lg-6 text-center mx-auto p-2" data-ripple-color="light" data-bs-toggle="modal" data-bs-target="#gallery" id="hoverimg">
+                <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213330/image00003_cskuqt.jpg" class="img-fluid rounded" alt="image">
+            </div>
+            <div class="col-12 col-md-10 mt-3 col-lg-6 text-center mx-auto p-2" data-ripple-color="light" data-bs-toggle="modal" data-bs-target="#gallery" id="hoverimg">
+                <div class="card rounded position-relative">
+                    <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213330/image00001_dxuc8q.jpg" class="img-fluid rounded" alt="image">
+                    <div class="card-img-overlay ">
+                        <button class="btn btn-light btn-outline-secondary position-absolute bottom-0 end-0 translate-end m-2">Meer foto's...</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="gallery" tabindex="-1" aria-labelledby="galleryLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div id="Casa1Caraousel" class="carousel slide carousel-fade" data-bs-ride="carousel"
+                    data-bs-pause=false>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213333/image00008_r6yqo3.jpgg" class="d-block w-100 h-100 rounded" alt="casa11" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213335/image00012_xqmb7n.jpg" class="d-block w-100 h-100 rounded" alt="casa12" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213330/image00003_cskuqt.jpg" alt="casa12" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213330/image00001_dxuc8q.jpg" alt="casa11" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213339/image00020_ug63kc.jpg" class="d-block w-100 h-100 rounded" alt="casa12" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213339/image00019_yjo9oh.jpg" class="d-block w-100 h-100 rounded" alt="casa12" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213339/image00018_mrhaqc.jpg" class="d-block w-100 h-100 rounded" alt="casa11" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213338/image00015_p6dzas.jpg" class="d-block w-100 h-100 rounded" alt="casa12" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213338/image00014_agh7ds.jpg" class="d-block w-100 h-100 rounded" alt="casa11" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213337/image00022_pnkeyy.jpg" class="d-block w-100 h-100 rounded" alt="casa12" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213335/image00011_ttwclh.jpg" class="d-block w-100 h-100 rounded" alt="casa12" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213335/image00012_xqmb7n.jpg" class="d-block w-100 h-100 rounded" alt="casa11" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213335/image00013_ugbqom.jpg" class="d-block w-100 h-100 rounded" alt="casa12" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213334/image00009_cyms5m.jpg" class="d-block w-100 h-100 rounded" alt="casa12" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213333/image00006_bqleu3.jpg" class="d-block w-100 h-100 rounded" alt="casa11" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213333/image00008_r6yqo3.jpg" class="d-block w-100 h-100 rounded" alt="casa12" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213330/image00004_frdyny.jpg" class="d-block w-100 h-100 rounded" alt="casa12" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213330/image00001_dxuc8q.jpg" class="d-block w-100 h-100 rounded" alt="casa11" id="casa1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                            <img src="https://res.cloudinary.com/dxrcssdpn/image/upload/v1751213330/image00003_cskuqt.jpg" class="d-block w-100 h-100 rounded" alt="casa12" id="casa1">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#Casa1Caraousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#Casa1Caraousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <!-- Image number display -->
+                <div id="imageNumber" class="position-absolute bottom-0 end-0 p-2 bg-transparent text-white rounded">
+                    1 / 15
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Calendar -->
+    <div class="container-fluid pt-3 text-center">
+        <div class="text-center mb-4">
+            <p> Boek nu je verblijf en beleef jouw ultieme Costa Blanca-moment in Casa Carpe Diem!</p>
+            <div class="text-center mt-2">
+                <div data-widget-id='cfec8036-0cb0-46f5-8287-3c7fca367e86'></div>
+            </div>
+        </div>
+    </div>
+    <!-- contact -->
+    <div class="container-fluid px-5 pb-4" id="contact">
+        <div class="row py-1 g-3 mx-auto">
+            <div class="col-12 text-center">
+                <h1>Contact</h1>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 mx-auto text-center">
+                <a class="text-decoration-none text-body fw-bold" target="_blank" href="https://g.co/kgs/XPHsQeV">
+                    <i class="bi bi-geo-alt-fill h3"></i><br>Carrer de Germanies 10<br>
+                    03111 Busot<br>Alicante, Spain</a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 p-1 m-auto text-center">
+                <a class="text-decoration-none text-body fw-bold" target="_blank" href="https://wa.me/+34608205493">
+                    <i class="bi bi-whatsapp h3"></i><br>+34608205493</a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 p-1 m-auto text-center">
+                <a class="text-decoration-none text-body fw-bold" target="_blank"
+                    href="https://www.linkedin.com/company/luxury-palmeras/">
+                    <i class="bi bi-linkedin h3"></i><br>LinkedIn</a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 p-1 m-auto text-center">
+                <a class="text-decoration-none text-body fw-bold" target="_blank" href="" data-bs-toggle="modal" data-bs-target="#modalContactForm">
+                    <i class="bi bi-envelope-at-fill h3"></i><p>Mike<br>@Luxurypalmeras.com</p></a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 p-1 m-auto text-center">
+                <a class="text-decoration-none text-body fw-bold" target="_blank"
+                    href="https://www.facebook.com/profile.php?id=100094585713462">
+                    <i class="bi bi-facebook h3"></i><br>Facebook<br>@luxury Palmeras</a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 p-1 m-auto text-center">
+                <a class="text-decoration-none text-body fw-bold" target="_blank"
+                    href="https://www.instagram.com/luxurypalmeras/">
+                    <i class="bi bi-instagram h3"></i><br>Instagram<br>@luxurypalmeras</a>
+            </div>
+        </div>
+    </div>
+    <!-- contact form -->
+    <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Bericht ons!</h4>
+                    <button type="button" class="close btn btn-unique border-0" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form class="needs-validation" id="contactForm" onsubmit="validateContactForm()" method="POST"
+                    name="myemailform" action="https://formspree.io/f/mqkrdvjb">
+                    <div class="modal-body mx-3">
+                        <div class="md-form mb-3">
+                            <i class="fas fa-user prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="naam">Uw naam</label>
+                            <input type="text" id="naam" class="form-control validate" name="name" required=""
+                                placeholder="Voor- en achternaam">
+                        </div>
+                        <div class="md-form mb-3">
+                            <i class="fas fa-envelope prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="form29">Uw email address</label>
+                            <input type="email" id="form29" class="form-control validate" aria-describedby="emailHelp"
+                                name="email" required>
+                            <div id="emailHelp" class="form-text">Wij delen u email niet met derden.</div>
+                        </div>
+                        <div class="md-form mb-3">
+                            <i class="fas fa-tag prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="telefoon">Telefoonnummer</label>
+                            <input type="telephone" id="telefoon" class="form-control validate" name="telefoon"
+                                placeholder="(+316) 123-4567" required>
+                        </div>
+                        <div class="md-form mb-3">
+                            <i class="fas bi-house-heart-fill prefix grey-text fs-4"></i>
+                            <label data-error="wrong" data-success="right" for="woning">Woning</label>
+                            <input type="text" id="woning" class="form-control validate" name="woning"
+                                placeholder="Welke woning betreft uw aanvraag?" required>
+                        </div>
+                        <div class="md-form mb-3">
+                            <input type="hidden" id="form32" class="form-control validate" name="_subject"
+                                value="Contact Form Submission">
+                        </div>
+                        <div class="md-form">
+                            <i class="fas fa-pencil prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="form8" required>Uw bericht:</label>
+                            <textarea type="text" id="form8" class="md-textarea form-control" rows="4" name="message"
+                                required></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="submit" class="btn btn-dark" onclick="validateContactForm()"
+                            data-bs-target="#verstuurd" value="send">Verstuur
+                            <i class="fas fa-paper-plane-o ml-1"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="verstuurd" aria-hidden="true" aria-labelledby="verstuurd" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="verstuurd">Bedankt!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Uw ontvangt spoeding een reactie van ons.
+                </div>
+            </div>
+        </div>
+    </div>
+<footer>
+    <div class="container-fluid pt-1 border-top">
+        <div class="row m-auto fw-bold">
+            <p>&copy; 2023 Luxury Palmeras. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const carousel = document.getElementById('Casa1Caraousel');
+        const imageNumber = document.getElementById('imageNumber');
+        const totalImages = carousel.querySelectorAll('.carousel-item').length;
+
+        // Update the image number on slide
+        carousel.addEventListener('slide.bs.carousel', function (event) {
+            const currentIndex = event.to + 1; // Slide index is zero-based
+            imageNumber.textContent = `${currentIndex} / ${totalImages}`;
+        });
+
+        // Initialize with the first slide
+        const initialIndex = carousel.querySelector('.carousel-item.active').index || 0;
+        imageNumber.textContent = `1 / ${totalImages}`;
+    });
+
+</script>
+</body>
+</html>
