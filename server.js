@@ -29,6 +29,15 @@ const PORT = process.env.PORT || 4000; // Use Heroku's port or default to 4000
 //const jsonFilePath = path.resolve('data.json'); // Absolute path to the data.json file
 const jsonFilePath = path.join(os.tmpdir(), "data.json"); // Save to a cross-platform temp directory
 
+// Force HTTPS redirect on Heroku
+app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https' && process.env.NODE_ENV === 'production') {
+        res.redirect(301, `https://${req.header('host')}${req.url}`);
+    } else {
+        next();
+    }
+});
+
 // Middleware
 app.use(cors()); // Enable CORS for all routes
 app.use(express.static(path.join(__dirname, "public"))); // Serve static files from the "public" directory
