@@ -37,7 +37,7 @@
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <div class="sticky-top" id="google_translate_element"></div>
-    <script src='https://guests.lodgepilot.com/calendar-widget.js'></script>
+    <script src='https://guests.lodgepilot.com/reservation-widget.js'></script>
 </head>
 <body>
     <nav class="navbar navbar-light navbar-expand-lg bg-white text-white pb-4 m-auto fs-4" id="navigation">
@@ -215,7 +215,7 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-                <div class="position-absolute bottom-0 end-0 p-2 bg-transparent text-white rounded">
+                <div id="imageNumber" class="position-absolute bottom-0 end-0 p-2 bg-transparent text-white rounded">
                     1 / 31
                 </div>
             </div>
@@ -227,7 +227,7 @@
     <div class="container-fluid pt-3 text-center">
         <div class="text-center mb-4">
             <div class="text-center mt-2">
-                <!-- <div data-widget-id='4065c853-414a-4fc9-bd4a-916b9e9b8272'></div> -->
+                <div data-reservation-widget-id='26e7c390-4577-4207-bf77-71bf469bbf38'></div>
             </div>
         </div>
     </div>
@@ -349,7 +349,7 @@
 </footer>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const carousel = document.getElementById('Casa1Caraousel');
+        const carousel = document.getElementById('VillaWelyCarousel');
         const imageNumber = document.getElementById('imageNumber');
         const totalImages = carousel.querySelectorAll('.carousel-item').length;
 
