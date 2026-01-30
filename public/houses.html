@@ -38,6 +38,39 @@
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <div class="sticky-top" id="google_translate_element"></div>
+    <style>
+        .filter-btn {
+            margin: 5px;
+            border-radius: 25px;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+        }
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .filter-btn.active {
+            background-color: #212529;
+            color: white;
+            border-color: #212529;
+        }
+        .property-card-wrapper {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .property-card-wrapper.hidden {
+            display: none !important;
+        }
+        .filter-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .region-count {
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-light navbar-expand-lg bg-white text-white pb-4 m-auto fs-4" id="navigation">
@@ -85,57 +118,89 @@
                 <h1>Luxury Rentals</h1>
             </div>
         </div>
-        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-5 p-5">
-            <div class="col">
-                <div class="property-card card h-100">
-                    <div id="Casa1Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa de Alyssa/Casa-de-Alyssa-17.jpg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa11" id="casa1">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa de Alyssa/Casa-de-Alyssa-1.jpg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa12" id="casa1">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa de Alyssa/Casa-de-Alyssa-18.jpg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa12" id="casa1">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa de Alyssa/Casa-de-Alyssa-2.jpg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa12" id="casa1">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa de Alyssa/Casa-de-Alyssa-22.jpg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa12" id="casa1">
-                            </div>
+        
+        <!-- Filter Section -->
+        <div class="row px-5 mb-4">
+            <div class="col-12">
+                <div class="filter-container text-center">
+                    <h5 class="mb-3"><i class="bi bi-funnel"></i> Filter woningen</h5>
+                    
+                    <!-- Region Filter -->
+                    <div class="mb-3">
+                        <span class="fw-bold me-2">Regio of plaats:</span>
+                        <div class="d-inline-flex flex-wrap justify-content-center">
+                            <button class="btn btn-outline-dark filter-btn region-filter active" data-filter="all">
+                                Alle <span class="region-count">(33)</span>
+                            </button>
+                            <button class="btn btn-outline-dark filter-btn region-filter" data-filter="alicante">
+                                Regio Alicante <span class="region-count">(29)</span>
+                            </button>
+                            <button class="btn btn-outline-dark filter-btn region-filter" data-filter="dehesa-de-campoamor">
+                                Dehesa de Campoamor <span class="region-count">(6)</span>
+                            </button>
+                            <button class="btn btn-outline-dark filter-btn region-filter" data-filter="murcia">
+                                Regio Murcia <span class="region-count">(4)</span>
+                            </button>
+                            <button class="btn btn-outline-dark filter-btn region-filter" data-filter="orihuela-costa">
+                                Orihuela Costa <span class="region-count">(4)</span>
+                            </button>
+                            <button class="btn btn-outline-dark filter-btn region-filter" data-filter="torrevieja">
+                                Torrevieja <span class="region-count">(4)</span>
+                            </button>
+                            <button class="btn btn-outline-dark filter-btn region-filter" data-filter="busot">
+                                Busot<span class="region-count">(3)</span>
+                            </button>
+                            <button class="btn btn-outline-dark filter-btn region-filter" data-filter="lo-pagan">
+                                Lo Pagan <span class="region-count">(3)</span>
+                            </button>
+                            <button class="btn btn-outline-dark filter-btn region-filter" data-filter="mutxamel">
+                                Mutxamel <span class="region-count">(2)</span>
+                            </button>
+                            <button class="btn btn-outline-dark filter-btn region-filter" data-filter="pilar-de-la-horadada">
+                                Pilar de la Horadada <span class="region-count">(2)</span>
+                            </button>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa1Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa1Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
                     </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Alyssa</p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/03191+Torre+de+la+Horadada,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Torre de la Horadada
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>2 Slaapkamers</li>
-                            <li>1 Badkamer</li>
-                            <li>Tuin</li>
-                            <li>Gemeenschappelijke zwembad</li>
-                            <li>Loopafstand tot het strand</li>
-                        </ul>
+                    
+                    <!-- Bedroom and Bathroom Filters -->
+                    <div class="d-flex flex-wrap justify-content-center gap-4 mt-3">
+                        <div class="d-flex align-items-center">
+                            <label for="bedroom-filter" class="fw-bold me-2"><i class="bi bi-door-closed"></i> Slaapkamers:</label>
+                            <select id="bedroom-filter" class="form-select form-select-sm" style="width: auto;">
+                                <option value="all">Alle</option>
+                                <option value="1">1 Slaapkamer</option>
+                                <option value="2">2 Slaapkamers</option>
+                                <option value="3">3 Slaapkamers</option>
+                            </select>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <label for="bathroom-filter" class="fw-bold me-2"><i class="bi bi-droplet"></i> Badkamers:</label>
+                            <select id="bathroom-filter" class="form-select form-select-sm" style="width: auto;">
+                                <option value="all">Alle</option>
+                                <option value="1">1 Badkamer</option>
+                                <option value="2">2 Badkamers</option>
+                                <option value="3">3 Badkamers</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-alyssa.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    
+                    <!-- Results count -->
+                    <div class="mt-3">
+                        <span id="results-count" class="text-muted">33 woningen gevonden</span>
+                    </div>
+                    <!-- Clear filters button -->
+                    <div class="mt-3">
+                        <button id="clear-filters" class="btn btn-outline-danger px-4 py-2">
+                            <i class="bi bi-x-circle me-1"></i> Wis filters
+                        </button>
                     </div>
                 </div>
             </div>
-            <div class="col">
+        </div>
+
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-5 p-5" id="properties-container">
+            <!-- Casa Aaliyah - Pilar de la Horadada -->
+            <div class="col property-card-wrapper" data-region="pilar-de-la-horadada alicante" data-bedrooms="2" data-bathrooms="2">
                 <div class="property-card card h-100">
                     <div id="Casa2Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
                         data-bs-pause=false>
@@ -169,7 +234,7 @@
                         <p class="card-title fs-3">Casa Aaliyah</p>
                         <a class="text-body fs-4" target="_blank" 
                         href="https://www.google.com/maps/place/Pilar+de+la+Horadada,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Pilar de la Horadada
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Pilar de la Horadada, Alicante
                         </a>
                         <ul class="list-unstyled fs-5">
                             <li>2 Slaapkamers</li>
@@ -185,57 +250,352 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <!-- Casa Alyssa - Torre de la Horadada -->
+            <div class="col property-card-wrapper" data-region="torre-de-la-horadada alicante" data-bedrooms="2" data-bathrooms="1">
                 <div class="property-card card h-100">
-                    <div id="Casa3Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                    <div id="Casa1Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
                         data-bs-pause=false>
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Zayn/image00006.jpeg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa13" id="casa3">
+                                <img src="images/Woningen/Casa de Alyssa/Casa-de-Alyssa-17.jpg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa11" id="casa1">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Zayn/image00007.jpeg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa13" id="casa3">
+                                <img src="images/Woningen/Casa de Alyssa/Casa-de-Alyssa-1.jpg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa12" id="casa1">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Zayn/image00008.jpeg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa13" id="casa3">
+                                <img src="images/Woningen/Casa de Alyssa/Casa-de-Alyssa-18.jpg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa12" id="casa1">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Zayn/image00015.jpeg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa13" id="casa3">
+                                <img src="images/Woningen/Casa de Alyssa/Casa-de-Alyssa-2.jpg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa12" id="casa1">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Zayn/image00012.jpeg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa13" id="casa3">
-                            </div>                           
+                                <img src="images/Woningen/Casa de Alyssa/Casa-de-Alyssa-22.jpg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa12" id="casa1">
+                            </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa3Caraousel" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa1Caraousel" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa3Caraousel" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa1Caraousel" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
                     <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Zayn</p>
+                        <p class="card-title fs-3">Casa Alyssa</p>
                         <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/Torrevieja,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Torrevieja, Costa Blanca
+                        href="https://www.google.com/maps/place/03191+Torre+de+la+Horadada,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Torre de la Horadada, Alicante
                         </a>
                         <ul class="list-unstyled fs-5">
                             <li>2 Slaapkamers</li>
                             <li>1 Badkamer</li>
-                            <li>Terras</li>
-                            <li>Gemeenschappelijk zwembad</li>
-                            <li>5 minuten rijden van het strand</li>
-                            <li>Golfbaan in de buurt</li>
+                            <li>Tuin</li>
+                            <li>Gemeenschappelijke zwembad</li>
+                            <li>Loopafstand tot het strand</li>
                         </ul>
                     </div>
                     <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-zayn.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                        <a href="casa-alyssa.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <!-- Casa Amanecer 109 - Dehesa de Campoamor -->
+            <div class="col property-card-wrapper" data-region="dehesa-de-campoamor alicante" data-bedrooms="2" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa31Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-amanecer-109/casa-amanecer-109-1.jpg" class="d-block w-100 rounded-top" alt="casa71" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-amanecer-109/casa-amanecer-109-2.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-amanecer-109/casa-amanecer-109-5.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-amanecer-109/casa-amanecer-109-4.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa31Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa31Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Amanecer 109</p>
+                        <a class="text-body fs-4" target="_blank" 
+                        href="https://www.google.com/maps/place/Dehesa+de+Campoamor,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill h3 py-5"></i> Dehesa de Campoamor, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>2 Slaapkamers</li>
+                            <li>2 Badkamers</li>
+                            <li>Volledig uitgeruste keuken</li>
+                            <li>Groot gemeenschappelijk zwembad & jacuzzi's</li>
+                            <li>Fitnessruimte</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-amanecer-109.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Amanecer 411 - dehesa-de-campoamor-->
+            <div class="col property-card-wrapper" data-region="dehesa-de-campoamor alicante" data-bedrooms="2" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa6Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Amanecer 411/casa amanecer 4.jpg" class="d-block w-100 rounded-top" alt="casa13" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Amanecer 411/casa amanecer 1.jpg" class="d-block w-100 rounded-top" alt="casa13" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Amanecer 411/casa amanecer 8.jpg" class="d-block w-100 rounded-top" alt="casa13" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Amanecer 411/casa amanecer 9.jpg" class="d-block w-100 rounded-top" alt="casa13" id="casa3">
+                            </div>                           
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa6Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa6Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Amanecer 411 </p>
+                        <a class="text-body fs-4" target="_blank" 
+                        href="https://www.google.com/maps/place/Dehesa+de+Campoamor,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Dehesa de Campoamor, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>2 ruime slaapkamers</li>
+                            <li>2 luxe badkamers</li>
+                            <li>Gemeenschappelijk zwembad</li>
+                            <li>Fitnessruimte</li>
+                            <li>Groot privé-dakterras</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-amanecer.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Carl - dehesa-de-campoamor -->
+            <div class="col property-card-wrapper" data-region="dehesa-de-campoamor alicante" data-bedrooms="2" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa15Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Carl/casa-carl-11.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa111" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Carl/casa-carl-6.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa112" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Carl/casa-carl-18.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa113" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Carl/casa-carl-12.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa115" id="casa3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa15Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa15Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Carl</p>
+                        <a class="text-body fs-4" target="_blank" 
+                        href="https://www.google.com/maps/place/Dehesa+de+Campoamor,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill h3 py-5"></i>Dehesa de Campoamor, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>2 Slaapkamers</li>
+                            <li>2 Badkamers</li>
+                            <li>Volledig uitgeruste keuken</li>
+                            <li>Gemeenschappelijk zwembad en fitnessruimte</li>
+                            <li>3km van het strand</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-carl.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Carpe Diem - dehesa-de-campoamor-->
+            <div class="col property-card-wrapper" data-region="dehesa-de-campoamor alicante" data-bedrooms="2" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa17Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-carpe-diem/casa-carpe-diem-1.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa111" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-carpe-diem/casa-carpe-diem-2.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa112" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-carpe-diem/casa-carpe-diem-3.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa113" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-carpe-diem/casa-carpe-diem-4.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa115" id="casa3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa17Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa17Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Carpe Diem</p>
+                        <a class="text-body fs-4" target="_blank" 
+                        href="https://www.google.com/maps/place/Dehesa+de+Campoamor,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill h3 py-5"></i>Dehesa de Campoamor, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>2 Slaapkamers</li>
+                            <li>2 Badkamers</li>
+                            <li>Gemeenschappelijk zwembad</li>
+                            <li>Moderne fitnessruimte</li>
+                            <li>volledig ingerichte keuken</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-carpe-diem.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Cezanne - Murcia -->
+            <div class="col property-card-wrapper" data-region="murcia" data-bedrooms="3" data-bathrooms="3">
+                <div class="card h-100 property-card">
+                    <div id="Casa23Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-cezanne/villa-cezanne-1.jpg" class="d-block w-100 rounded-top" alt="casa231" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-cezanne/villa-cezanne-2.jpg" class="d-block w-100 rounded-top" alt="casa232" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-cezanne/villa-cezanne-3.jpg" class="d-block w-100 rounded-top" alt="casa233" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-cezanne/villa-cezanne-4.jpg" class="d-block w-100 rounded-top" alt="casa234" id="casa2">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa23Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa23Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Cezanne</p>
+                        <a class="text-body fs-4" target="_blank" 
+                        href="https://www.google.com/maps/place/30740+San+Pedro+del+Pinatar,+Murcia,+Spain">
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i> San Pedro del Pinatar, Murcia
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>3 Slaapkamers</li>
+                            <li>3 Badkamers</li>
+                            <li>Prive zwembad</li>
+                            <li>Groot dakterras met loungeset</li>
+                            <li>Eigen parkeerplaats op afgesloten terrein</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-cezanne.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa ChaJay - alicante -->
+            <div class="col property-card-wrapper" data-region="alicante" data-bedrooms="2" data-bathrooms="1">
+                <div class="card h-100 property-card">
+                    <div id="Casa12Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Ibiza/casa-ibiza-4.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa111" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Ibiza/casa-ibiza-3.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa112" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Ibiza/casa-ibiza-13.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa113" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Ibiza/casa-ibiza-11.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa115" id="casa3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa12Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa12Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa ChaJay</p>
+                        <a class="text-body fs-4" target="_blank"
+                            href="https://www.google.com/maps/place/03189+Cabo+Roig,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Cabo Roig, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>2 Slaapkamers</li>
+                            <li>1 Badkamer</li>
+                            <li>Prive terras</li>
+                            <li>Gemeenschappelijk zwembad</li>
+                            <li>Zenia Boulevard op rijafstand</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-ibiza.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa de Felicidad - Alicante -->
+            <div class="col property-card-wrapper" data-region="mutxamel alicante" data-region="mutxamel" data-bedrooms="2" data-bathrooms="1">
                 <div class="card h-100 property-card">
                     <div id="Casa4Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
                         data-bs-pause=false>
@@ -274,7 +634,7 @@
                         <p class="card-title fs-3">Casa de Felicidad</p>
                         <a class="text-body fs-4" target="_blank" 
                         href="https://www.google.com/maps/place/03110+Mutxamel,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Bonalba, Mutxamel
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Mutxamel, Alicante
                         </a>
                         <ul class="list-unstyled fs-5">
                             <li>2 Slaapkamers</li>
@@ -289,53 +649,645 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <!-- Casa Diente de Leon - alicante -->
+            <div class="col property-card-wrapper" data-region="alicante" data-bedrooms="3" data-bathrooms="2">
                 <div class="card h-100 property-card">
-                    <div id="Casa6Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                    <div id="Casa24Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
                         data-bs-pause=false>
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Amanecer 411/casa amanecer 4.jpg" class="d-block w-100 rounded-top" alt="casa13" id="casa3">
+                                <img src="https://images.luxurypalmeras.com/villa-diente-de-leon/villa-diente-de-leon-1.jpg" class="d-block w-100 rounded-top" alt="casa241" id="casa2">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Amanecer 411/casa amanecer 1.jpg" class="d-block w-100 rounded-top" alt="casa13" id="casa3">
+                                <img src="https://images.luxurypalmeras.com/villa-diente-de-leon/villa-diente-de-leon-2.jpg" class="d-block w-100 rounded-top" alt="casa242" id="casa2">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Amanecer 411/casa amanecer 8.jpg" class="d-block w-100 rounded-top" alt="casa13" id="casa3">
+                                <img src="https://images.luxurypalmeras.com/villa-diente-de-leon/villa-diente-de-leon-3.jpg" class="d-block w-100 rounded-top" alt="casa243" id="casa2">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Amanecer 411/casa amanecer 9.jpg" class="d-block w-100 rounded-top" alt="casa13" id="casa3">
-                            </div>                           
+                                <img src="https://images.luxurypalmeras.com/villa-diente-de-leon/villa-diente-de-leon-4.jpg" class="d-block w-100 rounded-top" alt="casa244" id="casa2">
+                            </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa6Caraousel" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa24Caraousel" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa6Caraousel" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa24Caraousel" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
                     <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Amanecer 411 </p>
+                        <p class="card-title fs-3">Casa Diente de Leon</p>
                         <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/Dehesa+de+Campoamor,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Dehesa de Campoamor, Costa Blanca
+                        href="https://www.google.com/maps/place/03150+Dolores,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i> Dolores, Alicante
                         </a>
                         <ul class="list-unstyled fs-5">
-                            <li>2 ruime slaapkamers</li>
-                            <li>2 luxe badkamers</li>
-                            <li>Gemeenschappelijk zwembad</li>
-                            <li>Fitnessruimte</li>
-                            <li>Groot privé-dakterras</li>
+                            <li>3 Slaapkamers</li>
+                            <li>2 Badkamers</li>
+                            <li>Groot dakterras met prachtig uitzicht</li>
+                            <li>Privé zwembad van 4x4 meter</li>
+                            <li>Beveiligde parkeerplaats</li>
                         </ul>
                     </div>
                     <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-amanecer.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                        <a href="casa-diente-de-leon.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <!-- Casa El Mundo - Alicante -->
+            <div class="col property-card-wrapper" data-region="busot alicante" data-bedrooms="3" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa25Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-el-mundo/villa-el-mundo-1.jpg" class="d-block w-100 rounded-top" alt="casa251" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-el-mundo/villa-el-mundo-2.jpg" class="d-block w-100 rounded-top" alt="casa252" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-el-mundo/villa-el-mundo-3.jpg" class="d-block w-100 rounded-top" alt="casa252" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-el-mundo/villa-el-mundo-4.jpg" class="d-block w-100 rounded-top" alt="casa252" id="casa2">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa25Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa25Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa El Mundo</p>
+                        <a class="text-body fs-4" target="_blank" 
+                        href="https://www.google.com/maps/place/03111+Busot,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i> Busot, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>3 Slaapkamers</li>
+                            <li>2 Badkamers</li>
+                            <li>2 Prive terrassen</li>
+                            <li>Prive zwembad</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-el-mundo.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Esmee - alicante -->
+            <div class="col property-card-wrapper" data-region="alicante" data-bedrooms="3" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa22Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-esmee/casa-esmee-1.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa111" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-esmee/casa-esmee-2.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa112" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-esmee/casa-esmee-3.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa113" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-esmee/casa-esmee-4.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa115" id="casa3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa22Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa22Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Esmee</p>
+                        <a class="text-body fs-4" target="_blank" 
+                        href="https://www.google.com/maps/place/03193+San+Miguel+de+Salinas,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill h3 py-5"></i>San Miguel de Salinas, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>3 Slaapkamers</li>
+                            <li>2 Badkamers</li>
+                            <li>Gemeenschappelijk zwembad</li>
+                            <li>Privé dakterras</li>
+                            <li>Moderne open keuken </li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-esmee.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Familia - alicante -->
+            <div class="col property-card-wrapper" data-region="punta-prima alicante" data-bedrooms="2" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa28Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel" 
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-familia/casa-familia-4.jpg" class="d-block w-100 rounded-top" alt="casa71" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-familia/casa-familia-2.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-familia/casa-familia-3.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-familia/casa-familia-5.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa28Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa28Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Familia</p>
+                        <a class="text-body fs-4" target="_blank" 
+                        href="https://www.google.com/maps/place/Punta+Prima+Beach">
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i> Punta Prima, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>2 Slaapkamers</li>
+                            <li>2 Badkamers</li>
+                            <li>Prive terras</li>
+                            <li>Gedeeld strand</li>
+                            <li>Loopafstand tot het strand</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-familia.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Janine - Alicante -->
+            <div class="col property-card-wrapper" data-region="alicante" data-bedrooms="3" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa7Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-janine/casa-janine-1.jpg" class="d-block w-100 rounded-top" alt="casa71" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-janine/casa-janine-2.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-janine/casa-janine-3.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-janine/casa-janine-4.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa7Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa7Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Janine</p>
+                        <a class="text-body fs-4" target="_blank" 
+                        href="https://www.google.com/search?q=La+Romana+spain">
+                            <i class="bi bi-geo-fill h3 py-5"></i> La Romana, Alicante
+                        </a> 
+                        <ul class="list-unstyled fs-5">
+                            <li>3 Slaapkamers</li>
+                            <li>2 1-persoonsslaapbanken</li>
+                            <li>2 moderne badkamers</li>
+                            <li>Volledig privé zwembad</li>
+                            <li>Zonneterras met ligbedden</li>
+                            <li>Eigen parkeerplaats</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-janine.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Jolanda - dehesa-de-campoamor -->
+            <div class="col property-card-wrapper" data-region="dehesa-de-campoamor alicante" data-bedrooms="2" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa13Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Jolanda/casa-jolanda-4.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa111" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Jolanda/casa-jolanda-3.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa112" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Jolanda/casa-jolanda-10.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa113" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Jolanda/casa-jolanda-35.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa115" id="casa3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa13Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa13Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Jolanda</p>
+                        <a class="text-body fs-4" target="_blank" 
+                        href="https://www.google.com/maps/place/Dehesa+de+Campoamor,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill h3 py-5"></i>Dehesa de Campoamor, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>2 Slaapkamers</li>
+                            <li>2 Badkamers</li>
+                            <li>Gemeenschappelijk zwembad en fitnessruimte</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-jolanda.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Laurent III - Murcia -->
+            <div class="col property-card-wrapper" data-region="lo-pagan murcia" data-bedrooms="3" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa10Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Laurent III/IMG-20240511-WA0021.jpg"
+                                    class="d-block w-100 rounded-top" alt="casa101" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Laurent III/IMG-20240511-WA0023.jpg"
+                                    class="d-block w-100 rounded-top" alt="casa102" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Laurent III/IMG-20240511-WA0037.jpg"
+                                    class="d-block w-100 rounded-top" alt="casa103" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Laurent III/IMG-20240511-WA0031.jpg"
+                                    class="d-block w-100 rounded-top" alt="casa104" id="casa3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa10Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa10Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Laurent III</p>
+                        <a class="text-body fs-4" target="_blank"
+                            href="https://www.google.com/maps/place/30740+Lo+Pagán,+Murcia,+Spain">
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Lo Pagan, Murcia
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>3 Slaapkamers</li>
+                            <li>2 Badkamers</li>
+                            <li>Prive terras</li>
+                            <li>Dakterras</li>
+                            <li>Prive zwembad</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-laurent-III.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Miami - Alicante -->
+            <div class="col property-card-wrapper" data-region="mutxamel alicante" data-bedrooms="2" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa12Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Miami/IMG-20240528-WA0028.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa111" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Miami/IMG-20240528-WA0045.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa112" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Miami/IMG-20240528-WA0039.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa113" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Miami/IMG-20240528-WA0038.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa115" id="casa3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa12Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa12Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Miami</p>
+                        <a class="text-body fs-4" target="_blank"
+                            href="https://www.google.com/maps/place/Mutxamel,+Alicante,+Spain/">
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Mutxamel, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>2 Slaapkamers</li>
+                            <li>2 Badkamers</li>
+                            <li>Prive terras</li>
+                            <li>Luxe spa faciliteiten</li>
+                            <li>Poolbiljart</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-miami.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Mike - dehesa-de-campoamor -->
+            <div class="col property-card-wrapper" data-region="dehesa-de-campoamor alicante" data-bedrooms="2" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa14Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Mike/casa-mike-1.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa111" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Mike/casa-mike-3.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa112" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Mike/casa-mike-11.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa113" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Mike/casa-mike-14.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa115" id="casa3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa14Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa14Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Mike</p>
+                        <a class="text-body fs-4" target="_blank" 
+                        href="https://www.google.com/maps/place/Dehesa+de+Campoamor,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill h3 py-5"></i>Dehesa de Campoamor, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>2 Slaapkamers</li>
+                            <li>2 Badkamers</li>
+                            <li>Groot dakterras met een luxe jacuzzi</li>
+                            <li>Gemeenschappelijk zwembad en fitnessruimte</li>
+                            <li>10 minuten rijden van het strand</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-mike.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Ole y Jula - Alicante -->
+            <div class="col property-card-wrapper" data-region="alicante" data-bedrooms="2" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa16Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-ole-y-julia/villa-ole-y-julia-1.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa111" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-ole-y-julia/villa-ole-y-julia-2.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa112" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-ole-y-julia/villa-ole-y-julia-3.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa113" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-ole-y-julia/villa-ole-y-julia-4.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa115" id="casa3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa16Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa16Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Ole y Jula</p>
+                        <a class="text-body fs-4" target="_blank" 
+                        href="https://www.google.com/maps/place/Municipality+of+San+Vicente+del+Raspeig">
+                            <i class="bi bi-geo-fill h3 py-5"></i>San Vicente del Raspeig, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>2 Slaapkamers</li>
+                            <li>2 Badkamers</li>
+                            <li>3 prive terrassen</li>
+                            <li>Prive zwembad</li>
+                            <li>Volledig ingerichte keuken</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-ole.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Robas - Alicante -->
+            <div class="col property-card-wrapper" data-region="busot alicante" data-bedrooms="3" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa26Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-robas/villa-robas-1.jpg" class="d-block w-100 rounded-top" alt="casa71" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-robas/villa-robas-2.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-robas/villa-robas-3.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/villa-robas/villa-robas-4.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa26Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa26Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Robas</p>
+                        <a class="text-body fs-4" target="_blank" 
+                        href="https://www.google.com/maps/place/03111+Busot,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i> Busot, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>3 Slaapkamers</li>
+                            <li>2 Badkamers</li>
+                            <li>2 Prive terrassen</li>
+                            <li>Prive zwembad</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-robas.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Romee - Orihuela Costa -->
+            <div class="col property-card-wrapper" data-region="orihuela-costa alicante" data-bedrooms="2" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa19Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-romee/casa-romee-1.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa111" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-romee/casa-romee-2.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa112" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-romee/casa-romee-3.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa113" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/casa-romee/casa-romee-4.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa115" id="casa3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa19Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa19Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Romee</p>
+                        <a class="text-body fs-4" target="_blank"  
+                            href="https://www.google.com/maps/search/orihuela+costa">
+                                <i class="bi bi-geo-fill h3 py-5"></i> Orihuela Costa, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>2 Slaapkamers</li>
+                            <li>2 Badkamers</li>
+                            <li>Gemeenschappelijk zwembad met ligweide</li>
+                            <li>Privé dakterras met ligstoelen, loungeset en buitenkeuken</li>
+                            <li>Fraaie tuinen</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-romee.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Santiago -  -->
+            <div class="col property-card-wrapper" data-region="pilar-de-la-horadada alicante" data-bedrooms="3" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa4Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Ruby/Casa-ruby-1.jpg" class="d-block w-100 rounded-top" alt="casa11" id="casa1">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Ruby/Casa-ruby-8.jpg" class="d-block w-100 rounded-top" alt="casa12" id="casa1">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Ruby/Casa-ruby-18.jpg" class="d-block w-100 rounded-top" alt="casa12" id="casa1">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Ruby/Casa-ruby-19.jpg" class="d-block w-100 rounded-top" alt="casa12" id="casa1">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa4Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa4Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Casa Santiago</p>
+                        <a class="text-body fs-4" target="_blank" 
+                        href="https://www.google.com/maps/place/Pilar+de+la+Horadada,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Pilar de la Horadada, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>3 Slaapkamers</li>
+                            <li>2 Badkamers</li>
+                            <li>Terras</li>
+                            <li>Gemeenschappelijk zwembad</li>
+                            <li>Loopafstand tot het centrum</li>
+                            <li>Parkeren</li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="casa-ruby.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Casa Sunbird - Orihuela Costa -->
+            <div class="col property-card-wrapper" data-region="alicante" data-bedrooms="2" data-bathrooms="1">
                 <div class="card h-100 property-card">
                     <div id="Casa9Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
                         data-bs-pause=false>
@@ -387,206 +1339,58 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <!-- Casa Toronto - Torrevieja -->
+            <div class="col property-card-wrapper" data-region="torrevieja alicante" data-bedrooms="1" data-bathrooms="1">
                 <div class="card h-100 property-card">
-                    <div id="Casa10Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                    <div id="Casa7Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
                         data-bs-pause=false>
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Laurent III/IMG-20240511-WA0021.jpg"
-                                    class="d-block w-100 rounded-top" alt="casa101" id="casa3">
+                                <img src="images/Woningen/Casa Arne/casa-arne-3.jpg" class="d-block w-100 rounded-top" alt="casa71" id="casa2">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Laurent III/IMG-20240511-WA0023.jpg"
-                                    class="d-block w-100 rounded-top" alt="casa102" id="casa3">
+                                <img src="images/Woningen/Casa Arne/casa-arne-1.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Laurent III/IMG-20240511-WA0037.jpg"
-                                    class="d-block w-100 rounded-top" alt="casa103" id="casa3">
+                                <img src="images/Woningen/Casa Arne/casa-arne-21.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Laurent III/IMG-20240511-WA0031.jpg"
-                                    class="d-block w-100 rounded-top" alt="casa104" id="casa3">
+                                <img src="images/Woningen/Casa Arne/casa-arne-23.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa10Caraousel" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa7Caraousel" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa10Caraousel" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa7Caraousel" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
                     <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Laurent III</p>
-                        <a class="text-body fs-4" target="_blank"
-                            href="https://www.google.com/maps/place/30740+Lo+Pagán,+Murcia,+Spain">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Lo Pagan, Costa Blanca
+                        <p class="card-title fs-3">Casa Toronto</p>
+                        <a class="text-body fs-4" target="_blank" 
+                        href="https://www.google.com/maps/place/Torrevieja,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Torrevieja, Alicante
                         </a>
                         <ul class="list-unstyled fs-5">
-                            <li>3 Slaapkamers</li>
-                            <li>2 Badkamers</li>
-                            <li>Prive terras</li>
-                            <li>Dakterras</li>
-                            <li>Prive zwembad</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-laurent-III.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa12Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Miami/IMG-20240528-WA0028.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa111" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Miami/IMG-20240528-WA0045.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa112" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Miami/IMG-20240528-WA0039.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa113" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Miami/IMG-20240528-WA0038.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa115" id="casa3">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa12Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa12Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Miami</p>
-                        <a class="text-body fs-4" target="_blank"
-                            href="https://www.google.com/maps/place/Mutxamel,+Alicante,+Spain/">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Mutxamel, Alicante
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>2 Slaapkamers</li>
-                            <li>2 Badkamers</li>
-                            <li>Prive terras</li>
-                            <li>Luxe spa faciliteiten</li>
-                            <li>Poolbiljart</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-miami.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa12Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Ibiza/casa-ibiza-4.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa111" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Ibiza/casa-ibiza-3.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa112" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Ibiza/casa-ibiza-13.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa113" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Ibiza/casa-ibiza-11.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa115" id="casa3">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa12Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa12Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa ChaJay</p>
-                        <a class="text-body fs-4" target="_blank"
-                            href="https://www.google.com/maps/place/03189+Cabo+Roig,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Cabo Roig, Costa Blanca
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>2 Slaapkamers</li>
+                            <li>1 Slaapkamer</li>
                             <li>1 Badkamer</li>
-                            <li>Prive terras</li>
+                            <li>2 Prive terrassen</li>
+                            <li>Luxe spa faciliteiten</li>
+                            <li>Beveiligde parkeerplaats</li>
+                            <li>Gemeenschappelijk dakterras met barbecue</li>
                             <li>Gemeenschappelijk zwembad</li>
-                            <li>Zenia Boulevard op rijafstand</li>
+                            <li>Loopafstand tot het strand</li>
                         </ul>
                     </div>
                     <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-ibiza.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                        <a href="casa-arne.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa13Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Villa Costa 25/villaCosta-14.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa111" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Villa Costa 25/villaCosta-1.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa112" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Villa Costa 25/villaCosta-6.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa113" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Villa Costa 25/villaCosta-5.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa115" id="casa3">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa13Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa13Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">VillaCosta</p>
-                        <a class="text-body fs-4" target="_blank"
-                            href="https://www.google.com/maps/place/03189+Villamartin,+Alicante">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Villamartin, Orihuela Costa
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>2 Slaapkamers</li>
-                            <li>2 Badkamers</li>
-                            <li>Groot prive terras</li>
-                            <li>Gemeenschappelijk zwembad</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="villa-costa-25.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
+            <!-- Casa Torre Ghar - Torrevieja -->
+            <div class="col property-card-wrapper" data-region="torrevieja alicante" data-bedrooms="3" data-bathrooms="2">
                 <div class="card h-100 property-card">
                     <div id="Casa14Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
                         data-bs-pause=false>
@@ -621,7 +1425,7 @@
                         <p class="card-title fs-3">Casa Torre Ghar</p>
                         <a class="text-body fs-4" target="_blank"
                             href="https://www.google.com/maps/place/Torrevieja,+Alicante">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Casa Hafies, Torrevieja
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Torrevieja, Alicante
                         </a>
                         <ul class="list-unstyled fs-5">
                             <li>3 Slaapkamers</li>
@@ -637,255 +1441,205 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <!-- Casa Wely - Alicante -->
+            <div class="col property-card-wrapper" data-region="busot alicante" data-bedrooms="3" data-bathrooms="2">
                 <div class="card h-100 property-card">
-                    <div id="Casa13Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                    <div id="Casa27Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
                         data-bs-pause=false>
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Jolanda/casa-jolanda-4.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa111" id="casa3">
+                                <img src="https://images.luxurypalmeras.com/villa-wely/villa-wely-1.jpg" class="d-block w-100 rounded-top" alt="casa71" id="casa2">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Jolanda/casa-jolanda-3.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa112" id="casa3">
+                                <img src="https://images.luxurypalmeras.com/villa-wely/villa-wely-2.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Jolanda/casa-jolanda-10.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa113" id="casa3">
+                                <img src="https://images.luxurypalmeras.com/villa-wely/villa-wely-3.jpeg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Jolanda/casa-jolanda-35.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa115" id="casa3">
+                                <img src="https://images.luxurypalmeras.com/villa-wely/villa-wely-4.jpeg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa13Caraousel" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa27Caraousel" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa13Caraousel" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa27Caraousel" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
                     <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Jolanda</p>
+                        <p class="card-title fs-3">Casa Wely</p>
                         <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/Dehesa+de+Campoamor,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill h3 py-5"></i>Dehesa de Campoamor
+                        href="n">
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Busot, Alicante 
                         </a>
                         <ul class="list-unstyled fs-5">
-                            <li>2 Slaapkamers</li>
+                            <li>3 Slaapkamers</li>
                             <li>2 Badkamers</li>
-                            <li>Gemeenschappelijk zwembad en fitnessruimte</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-jolanda.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa14Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Mike/casa-mike-1.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa111" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Mike/casa-mike-3.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa112" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Mike/casa-mike-11.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa113" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Mike/casa-mike-14.jpeg" class="d-block w-100 rounded-top"
-                                    alt="casa115" id="casa3">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa14Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa14Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Mike</p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/Dehesa+de+Campoamor,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill h3 py-5"></i>Dehesa de Campoamor
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>2 Slaapkamers</li>
-                            <li>2 Badkamers</li>
-                            <li>Groot dakterras met een luxe jacuzzi</li>
-                            <li>Gemeenschappelijk zwembad en fitnessruimte</li>
-                            <li>10 minuten rijden van het strand</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-mike.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa15Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Carl/casa-carl-11.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa111" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Carl/casa-carl-6.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa112" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Carl/casa-carl-18.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa113" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Carl/casa-carl-12.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa115" id="casa3">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa15Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa15Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Carl</p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/Dehesa+de+Campoamor,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill h3 py-5"></i>Dehesa de Campoamor
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>2 Slaapkamers</li>
-                            <li>2 Badkamers</li>
-                            <li>Volledig uitgeruste keuken</li>
-                            <li>Gemeenschappelijk zwembad en fitnessruimte</li>
-                            <li>3km van het strand</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-carl.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa16Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-ole-y-julia/villa-ole-y-julia-1.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa111" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-ole-y-julia/villa-ole-y-julia-2.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa112" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-ole-y-julia/villa-ole-y-julia-3.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa113" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-ole-y-julia/villa-ole-y-julia-4.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa115" id="casa3">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa16Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa16Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Ole y Jula</p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/Municipality+of+San+Vicente+del+Raspeig">
-                            <i class="bi bi-geo-fill h3 py-5"></i>San Vicente del Raspeig
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>2 Slaapkamers</li>
-                            <li>2 Badkamers</li>
-                            <li>3 prive terrassen</li>
+                            <li>2 Prive terrassen</li>
                             <li>Prive zwembad</li>
-                            <li>Volledig ingerichte keuken</li>
                         </ul>
                     </div>
                     <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-ole.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                        <a href="casa-wely.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa17Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+            <!-- Casa Zayn - Torrevieja -->
+            <div class="col property-card-wrapper" data-region="torrevieja alicante" data-bedrooms="2" data-bathrooms="1">
+                <div class="property-card card h-100">
+                    <div id="Casa3Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
                         data-bs-pause=false>
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-carpe-diem/casa-carpe-diem-1.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa111" id="casa3">
+                                <img src="images/Woningen/Casa Zayn/image00006.jpeg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa13" id="casa3">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-carpe-diem/casa-carpe-diem-2.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa112" id="casa3">
+                                <img src="images/Woningen/Casa Zayn/image00007.jpeg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa13" id="casa3">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-carpe-diem/casa-carpe-diem-3.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa113" id="casa3">
+                                <img src="images/Woningen/Casa Zayn/image00008.jpeg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa13" id="casa3">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-carpe-diem/casa-carpe-diem-4.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa115" id="casa3">
+                                <img src="images/Woningen/Casa Zayn/image00015.jpeg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa13" id="casa3">
                             </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="images/Woningen/Casa Zayn/image00012.jpeg" class="d-block w-100 rounded-top property-carousel-image-rental" alt="casa13" id="casa3">
+                            </div>                           
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa17Caraousel" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa3Caraousel" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa17Caraousel" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa3Caraousel" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
                     <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Carpe Diem</p>
+                        <p class="card-title fs-3">Casa Zayn</p>
                         <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/Dehesa+de+Campoamor,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill h3 py-5"></i>Dehesa de Campoamor
+                        href="https://www.google.com/maps/place/Torrevieja,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Torrevieja, Alicante
                         </a>
                         <ul class="list-unstyled fs-5">
                             <li>2 Slaapkamers</li>
-                            <li>2 Badkamers</li>
+                            <li>1 Badkamer</li>
+                            <li>Terras</li>
                             <li>Gemeenschappelijk zwembad</li>
-                            <li>Moderne fitnessruimte</li>
-                            <li>volledig ingerichte keuken</li>
+                            <li>5 minuten rijden van het strand</li>
+                            <li>Golfbaan in de buurt</li>
                         </ul>
                     </div>
                     <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-carpe-diem.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                        <a href="casa-zayn.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <!-- Garden Luxe Amanacer 3 - Orihuela Costa -->
+            <div class="col property-card-wrapper" data-region="orihuela-costa alicante" data-bedrooms="2" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa21Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/garden-luxe/garden-luxe-1.png" class="d-block w-100 rounded-top"
+                                    alt="casa111" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/garden-luxe/garden-luxe-2.png" class="d-block w-100 rounded-top"
+                                    alt="casa112" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/garden-luxe/garden-luxe-3.png" class="d-block w-100 rounded-top"
+                                    alt="casa113" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/garden-luxe/garden-luxe-4.png" class="d-block w-100 rounded-top"
+                                    alt="casa115" id="casa3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa21Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa21Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Garden Luxe Amanacer 3</p>
+                        <a class="text-body fs-4" target="_blank" 
+                            href="https://www.google.com/maps/place/03189+Orihuela+Costa,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill h3 py-5"></i>Orihuela Costa, Alicante
+                        </a> 
+                        <ul class="list-unstyled fs-5">
+                            <li>2 Slaapkamers</li>
+                            <li>Gemeenschappelijk zwembad</li>
+                            <li>Privé dakterras</li>
+                            <li>Moderne open keuken </li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="garden-luxe-amanacer-3.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Sky Luxe Amanacer 3 - Orihuela Costa -->
+            <div class="col property-card-wrapper" data-region="orihuela-costa alicante" data-bedrooms="2" data-bathrooms="2">
+                <div class="card h-100 property-card">
+                    <div id="Casa20Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                        data-bs-pause=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/sky-luxe/sky-luxe-1.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa111" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/sky-luxe/sky-luxe-2.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa112" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/sky-luxe/sky-luxe-3.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa113" id="casa3">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
+                                <img src="https://images.luxurypalmeras.com/sky-luxe/sky-luxe-4.jpg" class="d-block w-100 rounded-top"
+                                    alt="casa115" id="casa3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa20Caraousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa20Caraousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title fs-3">Sky Luxe Amanacer 3</p>
+                        <a class="text-body fs-4" target="_blank" 
+                            href="https://www.google.com/maps/place/03189+Orihuela+Costa,+Alicante,+Spain">
+                            <i class="bi bi-geo-fill h3 py-5"></i>Orihuela Costa, Alicante
+                        </a>
+                        <ul class="list-unstyled fs-5">
+                            <li>2 Slaapkamers</li>
+                            <li>Gemeenschappelijk zwembad</li>
+                            <li>Privé dakterras</li>
+                            <li>Moderne open keuken </li>
+                        </ul>
+                    </div>
+                    <div class="card-text text-center align-items-end pb-3">
+                        <a href="sky-luxe-amanacer-3.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Villa Laguna Beach - Torrevieja -->
+            <div class="col property-card-wrapper" data-region="torrevieja alicante" data-bedrooms="2" data-bathrooms="2">
                 <div class="card h-100 property-card">
                     <div id="Casa18Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
                         data-bs-pause=false>
@@ -935,621 +1689,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa19Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-romee/casa-romee-1.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa111" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-romee/casa-romee-2.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa112" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-romee/casa-romee-3.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa113" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-romee/casa-romee-4.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa115" id="casa3">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa19Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa19Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Romee</p>
-                        <a class="text-body fs-4" target="_blank"  
-                            href="https://www.google.com/maps/search/orihuela+costa">
-                                <i class="bi bi-geo-fill h3 py-5"></i> Orihuela Costa
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>2 Slaapkamers</li>
-                            <li>2 Badkamers</li>
-                            <li>Gemeenschappelijk zwembad met ligweide</li>
-                            <li>Privé dakterras met ligstoelen, loungeset en buitenkeuken</li>
-                            <li>Fraaie tuinen</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-romee.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa20Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/sky-luxe/sky-luxe-1.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa111" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/sky-luxe/sky-luxe-2.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa112" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/sky-luxe/sky-luxe-3.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa113" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/sky-luxe/sky-luxe-4.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa115" id="casa3">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa20Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa20Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Sky Luxe Amanacer 3</p>
-                        <a class="text-body fs-4" target="_blank" 
-                            href="https://www.google.com/maps/place/03189+Orihuela+Costa,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill h3 py-5"></i>Orihuela Costa
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>2 Slaapkamers</li>
-                            <li>Gemeenschappelijk zwembad</li>
-                            <li>Privé dakterras</li>
-                            <li>Moderne open keuken </li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="sky-luxe-amanacer-3.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa21Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/garden-luxe/garden-luxe-1.png" class="d-block w-100 rounded-top"
-                                    alt="casa111" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/garden-luxe/garden-luxe-2.png" class="d-block w-100 rounded-top"
-                                    alt="casa112" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/garden-luxe/garden-luxe-3.png" class="d-block w-100 rounded-top"
-                                    alt="casa113" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/garden-luxe/garden-luxe-4.png" class="d-block w-100 rounded-top"
-                                    alt="casa115" id="casa3">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa21Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa21Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Garden Luxe Amanacer 3</p>
-                        <a class="text-body fs-4" target="_blank" 
-                            href="https://www.google.com/maps/place/03189+Orihuela+Costa,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill h3 py-5"></i>Orihuela Costa, Spain
-                        </a> 
-                        <ul class="list-unstyled fs-5">
-                            <li>2 Slaapkamers</li>
-                            <li>Gemeenschappelijk zwembad</li>
-                            <li>Privé dakterras</li>
-                            <li>Moderne open keuken </li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="garden-luxe-amanacer-3.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa7Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-janine/casa-janine-1.jpg" class="d-block w-100 rounded-top" alt="casa71" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-janine/casa-janine-2.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-janine/casa-janine-3.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-janine/casa-janine-4.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa7Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa7Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Janine</p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/search?q=La+Romana+spain">
-                            <i class="bi bi-geo-fill h3 py-5"></i> La Romana, Alicante
-                        </a> 
-                        <ul class="list-unstyled fs-5">
-                            <li>3 Slaapkamers</li>
-                            <li>2 1-persoonsslaapbanken</li>
-                            <li>2 moderne badkamers</li>
-                            <li>Volledig privé zwembad</li>
-                            <li>Zonneterras met ligbedden</li>
-                            <li>Eigen parkeerplaats</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-janine.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa22Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-esmee/casa-esmee-1.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa111" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-esmee/casa-esmee-2.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa112" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-esmee/casa-esmee-3.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa113" id="casa3">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-esmee/casa-esmee-4.jpg" class="d-block w-100 rounded-top"
-                                    alt="casa115" id="casa3">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa22Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa22Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Esmee</p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/03193+San+Miguel+de+Salinas,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill h3 py-5"></i>San Miguel de Salinas, Alicante
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>3 Slaapkamers</li>
-                            <li>2 Badkamers</li>
-                            <li>Gemeenschappelijk zwembad</li>
-                            <li>Privé dakterras</li>
-                            <li>Moderne open keuken </li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-esmee.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa4Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Ruby/Casa-ruby-1.jpg" class="d-block w-100 rounded-top" alt="casa11" id="casa1">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Ruby/Casa-ruby-8.jpg" class="d-block w-100 rounded-top" alt="casa12" id="casa1">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Ruby/Casa-ruby-18.jpg" class="d-block w-100 rounded-top" alt="casa12" id="casa1">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Ruby/Casa-ruby-19.jpg" class="d-block w-100 rounded-top" alt="casa12" id="casa1">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa4Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa4Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Santiago</p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/Pilar+de+la+Horadada,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Pilar de la Horadada, Costa Blanca
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>3 Slaapkamers</li>
-                            <li>2 Badkamers</li>
-                            <li>Terras</li>
-                            <li>Gemeenschappelijk zwembad</li>
-                            <li>Loopafstand tot het centrum</li>
-                            <li>Parkeren</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-ruby.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa7Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Arne/casa-arne-3.jpg" class="d-block w-100 rounded-top" alt="casa71" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Arne/casa-arne-1.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Arne/casa-arne-21.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="images/Woningen/Casa Arne/casa-arne-23.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa7Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa7Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Toronto</p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/Torrevieja,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Torrevieja, Costa Blanca
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>1 Slaapkamer</li>
-                            <li>1 Badkamer</li>
-                            <li>2 Prive terrassen</li>
-                            <li>Luxe spa faciliteiten</li>
-                            <li>Beveiligde parkeerplaats</li>
-                            <li>Gemeenschappelijk dakterras met barbecue</li>
-                            <li>Gemeenschappelijk zwembad</li>
-                            <li>Loopafstand tot het strand</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-arne.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa23Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-cezanne/villa-cezanne-1.jpg" class="d-block w-100 rounded-top" alt="casa231" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-cezanne/villa-cezanne-2.jpg" class="d-block w-100 rounded-top" alt="casa232" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-cezanne/villa-cezanne-3.jpg" class="d-block w-100 rounded-top" alt="casa233" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-cezanne/villa-cezanne-4.jpg" class="d-block w-100 rounded-top" alt="casa234" id="casa2">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa23Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa23Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Cezanne</p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/30740+San+Pedro+del+Pinatar,+Murcia,+Spain">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i> San Pedro del Pinatar
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>3 Slaapkamers</li>
-                            <li>3 Badkamers</li>
-                            <li>Prive zwembad</li>
-                            <li>Groot dakterras met loungeset</li>
-                            <li>Eigen parkeerplaats op afgesloten terrein</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-cezanne.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa24Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-diente-de-leon/villa-diente-de-leon-1.jpg" class="d-block w-100 rounded-top" alt="casa241" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-diente-de-leon/villa-diente-de-leon-2.jpg" class="d-block w-100 rounded-top" alt="casa242" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-diente-de-leon/villa-diente-de-leon-3.jpg" class="d-block w-100 rounded-top" alt="casa243" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-diente-de-leon/villa-diente-de-leon-4.jpg" class="d-block w-100 rounded-top" alt="casa244" id="casa2">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa24Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa24Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Diente de Leon</p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/03150+Dolores,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i> Dolores, Alicante
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>3 Slaapkamers</li>
-                            <li>2 Badkamers</li>
-                            <li>Groot dakterras met prachtig uitzicht</li>
-                            <li>Privé zwembad van 4x4 meter</li>
-                            <li>Beveiligde parkeerplaats</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-diente-de-leon.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa25Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-el-mundo/villa-el-mundo-1.jpg" class="d-block w-100 rounded-top" alt="casa251" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-el-mundo/villa-el-mundo-2.jpg" class="d-block w-100 rounded-top" alt="casa252" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-el-mundo/villa-el-mundo-3.jpg" class="d-block w-100 rounded-top" alt="casa252" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-el-mundo/villa-el-mundo-4.jpg" class="d-block w-100 rounded-top" alt="casa252" id="casa2">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa25Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa25Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa El Mundo</p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/03111+Busot,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i> Busot, Alicante
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>3 Slaapkamers</li>
-                            <li>2 Badkamers</li>
-                            <li>2 Prive terrassen</li>
-                            <li>Prive zwembad</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-el-mundo.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa26Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-robas/villa-robas-1.jpg" class="d-block w-100 rounded-top" alt="casa71" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-robas/villa-robas-2.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-robas/villa-robas-3.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-robas/villa-robas-4.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa26Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa26Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Robas</p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/03111+Busot,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i> Busot, Alicante
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>3 Slaapkamers</li>
-                            <li>2 Badkamers</li>
-                            <li>2 Prive terrassen</li>
-                            <li>Prive zwembad</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-robas.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa27Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-wely/villa-wely-1.jpg" class="d-block w-100 rounded-top" alt="casa71" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-wely/villa-wely-2.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-wely/villa-wely-3.jpeg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/villa-wely/villa-wely-4.jpeg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa27Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa27Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Wely</p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="n">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Busot, Alicante 
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>3 Slaapkamers</li>
-                            <li>2 Badkamers</li>
-                            <li>2 Prive terrassen</li>
-                            <li>Prive zwembad</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-wely.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa28Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel" 
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-familia/casa-familia-4.jpg" class="d-block w-100 rounded-top" alt="casa71" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-familia/casa-familia-2.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-familia/casa-familia-3.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-familia/casa-familia-5.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa28Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa28Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Familia</p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/Punta+Prima+Beach">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i> Punta Prima
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>2 Slaapkamers</li>
-                            <li>2 Badkamers</li>
-                            <li>Prive terras</li>
-                            <li>Gedeeld strand</li>
-                            <li>Loopafstand tot het strand</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-familia.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
+            <!-- Villa Palmera 1 - Murcia -->
+            <div class="col property-card-wrapper" data-region="lo-pagan murcia" data-bedrooms="3" data-bathrooms="2">
                 <div class="card h-100 property-card">
                     <div id="Casa29Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
                         data-bs-pause=false>
@@ -1580,7 +1721,7 @@
                         <p class="card-title fs-3">Villa Palmera 1 </p>
                         <a class="text-body fs-4" target="_blank" 
                         href="https://www.google.com/maps/place/30740+Lo+Pag%C3%A1n,+Murcia,+Spain">
-                            <i class="bi bi-geo-fill h3 py-5"></i> Lo Pagán
+                            <i class="bi bi-geo-fill h3 py-5"></i> Lo Pagán, Murcia
                         </a>
                         <ul class="list-unstyled fs-5">
                             <li>3 Slaapkamers</li>
@@ -1595,7 +1736,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <!-- Villa Palmera 2 - Murcia -->
+            <div class="col property-card-wrapper" data-region="lo-pagan murcia" data-bedrooms="3" data-bathrooms="3">
                 <div class="card h-100 property-card">
                     <div id="Casa30Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
                         data-bs-pause=false>
@@ -1626,7 +1768,7 @@
                         <p class="card-title fs-3">Villa Palmera 2 </p>
                         <a class="text-body fs-4" target="_blank" 
                         href="https://www.google.com/maps/place/30740+Lo+Pag%C3%A1n,+Murcia,+Spain">
-                            <i class="bi bi-geo-fill h3 py-5"></i> Lo Pagán
+                            <i class="bi bi-geo-fill h3 py-5"></i> Lo Pagán, Murcia
                         </a>
                         <ul class="list-unstyled fs-5">
                             <li>3 Slaapkamers</li>
@@ -1640,103 +1782,57 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <!-- VillaCosta - Orihuela Costa -->
+            <div class="col property-card-wrapper" data-region="orihuela-costa alicante" data-bedrooms="2" data-bathrooms="2">
                 <div class="card h-100 property-card">
-                    <div id="Casa31Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
+                    <div id="Casa13Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
                         data-bs-pause=false>
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-amanecer-109/casa-amanecer-109-1.jpg" class="d-block w-100 rounded-top" alt="casa71" id="casa2">
+                                <img src="images/Woningen/Villa Costa 25/villaCosta-14.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa111" id="casa3">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-amanecer-109/casa-amanecer-109-2.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
+                                <img src="images/Woningen/Villa Costa 25/villaCosta-1.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa112" id="casa3">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-amanecer-109/casa-amanecer-109-5.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
+                                <img src="images/Woningen/Villa Costa 25/villaCosta-6.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa113" id="casa3">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="https://images.luxurypalmeras.com/casa-amanecer-109/casa-amanecer-109-4.jpg" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
+                                <img src="images/Woningen/Villa Costa 25/villaCosta-5.jpeg" class="d-block w-100 rounded-top"
+                                    alt="casa115" id="casa3">
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa31Caraousel" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa13Caraousel" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa31Caraousel" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#Casa13Caraousel" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
                     <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa Amanecer 109</p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="https://www.google.com/maps/place/Dehesa+de+Campoamor,+Alicante,+Spain">
-                            <i class="bi bi-geo-fill h3 py-5"></i> Dehesa de Campoamor
+                        <p class="card-title fs-3">VillaCosta</p>
+                        <a class="text-body fs-4" target="_blank"
+                            href="https://www.google.com/maps/place/03189+Villamartin,+Alicante">
+                            <i class="bi bi-geo-fill fs-3 m-auto"></i>Villamartin, Orihuela Costa
                         </a>
                         <ul class="list-unstyled fs-5">
                             <li>2 Slaapkamers</li>
                             <li>2 Badkamers</li>
-                            <li>Volledig uitgeruste keuken</li>
-                            <li>Groot gemeenschappelijk zwembad & jacuzzi’s</li>
-                            <li>Fitnessruimte</li>
+                            <li>Groot prive terras</li>
+                            <li>Gemeenschappelijk zwembad</li>
                         </ul>
                     </div>
                     <div class="card-text text-center align-items-end pb-3">
-                        <a href="casa-amanecer-109.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
+                        <a href="villa-costa-25.html" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
                     </div>
                 </div>
             </div>
         </div>
-            <!-- EMPTY TEMPLATE
-             <div class="col">
-                <div class="card h-100 property-card">
-                    <div id="Casa7Caraousel" class="carousel slide carousel-fade card-img-top" data-bs-ride="carousel"
-                        data-bs-pause=false>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="" class="d-block w-100 rounded-top" alt="casa71" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000" data-bs-pause="hover">
-                                <img src="" class="d-block w-100 rounded-top" alt="casa72" id="casa2">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#Casa7Caraousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#Casa7Caraousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="card-title fs-3">Casa </p>
-                        <a class="text-body fs-4" target="_blank" 
-                        href="n">
-                            <i class="bi bi-geo-fill fs-3 m-auto"></i> loc
-                        </a>
-                        <ul class="list-unstyled fs-5">
-                            <li>1 Slaapkamer</li>
-                            <li>1 Badkamer</li>
-                            <li>2 Prive terrassen</li>
-                            <li>Luxe spa faciliteiten</li>
-                            <li>Beveiligde parkeerplaats</li>
-                            <li>Gemeenschappelijk dakterras met barbecue</li>
-                            <li>Gemeenschappelijk zwembad</li>
-                            <li>Loopafstand tot het strand</li>
-                        </ul>
-                    </div>
-                    <div class="card-text text-center align-items-end pb-3">
-                        <a href="" class="btn btn-outline-secondary">Bekijk beschikbaarheid</a>
-                    </div>
-                </div>
-            </div>-->
     </div>
     <!-- contact -->
     <div class="container-fluid px-5 pb-4" id="contact">
@@ -1854,5 +1950,83 @@
         </div>
     </div>
 </footer>
+
+<!-- Filter JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const regionButtons = document.querySelectorAll('.region-filter');
+        const bedroomFilter = document.getElementById('bedroom-filter');
+        const bathroomFilter = document.getElementById('bathroom-filter');
+        const propertyCards = document.querySelectorAll('.property-card-wrapper');
+        const resultsCount = document.getElementById('results-count');
+        
+        let currentRegion = 'all';
+        let currentBedrooms = 'all';
+        let currentBathrooms = 'all';
+        
+        function applyFilters() {
+            let visibleCount = 0;
+            
+            propertyCards.forEach(card => {
+                const cardRegion = card.getAttribute('data-region');
+                const cardBedrooms = card.getAttribute('data-bedrooms');
+                const cardBathrooms = card.getAttribute('data-bathrooms');
+                
+                const cardRegions = cardRegion ? cardRegion.split(' ') : [];
+                const matchesRegion = currentRegion === 'all' || cardRegions.includes(currentRegion);
+                const matchesBedrooms = currentBedrooms === 'all' || cardBedrooms === currentBedrooms;
+                const matchesBathrooms = currentBathrooms === 'all' || cardBathrooms === currentBathrooms;
+                
+                if (matchesRegion && matchesBedrooms && matchesBathrooms) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            // Update results count
+            resultsCount.textContent = visibleCount + ' woning' + (visibleCount !== 1 ? 'en' : '') + ' gevonden';
+        }
+        
+        // Region button click handler
+        regionButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                regionButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                currentRegion = this.getAttribute('data-filter');
+                applyFilters();
+            });
+        });
+        
+        // Bedroom filter change handler
+        bedroomFilter.addEventListener('change', function() {
+            currentBedrooms = this.value;
+            applyFilters();
+        });
+        
+        // Bathroom filter change handler
+        bathroomFilter.addEventListener('change', function() {
+            currentBathrooms = this.value;
+            applyFilters();
+        });
+        // Clear filters button handler
+        document.getElementById('clear-filters').addEventListener('click', function() {
+            // Reset region buttons
+            regionButtons.forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.region-filter[data-filter="all"]').classList.add('active');
+            currentRegion = 'all';
+            
+            // Reset dropdowns
+            bedroomFilter.value = 'all';
+            bathroomFilter.value = 'all';
+            currentBedrooms = 'all';
+            currentBathrooms = 'all';
+            
+            // Apply filters to show all
+            applyFilters();
+        });
+    });
+</script>
 </body>
 </html>
